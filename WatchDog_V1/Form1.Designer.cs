@@ -2,7 +2,7 @@
 namespace test
 {
     // comment test
-    partial class Loginbox
+    partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace test
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Loginbox));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.Login = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -119,6 +119,7 @@ namespace test
             this.LoginTxt.Name = "LoginTxt";
             this.LoginTxt.Size = new System.Drawing.Size(200, 23);
             this.LoginTxt.TabIndex = 5;
+            this.LoginTxt.TextChanged += new System.EventHandler(this.LoginTxt_TextChanged);
             // 
             // PassTxt
             // 
@@ -130,9 +131,10 @@ namespace test
             this.PassTxt.Name = "PassTxt";
             this.PassTxt.Size = new System.Drawing.Size(200, 23);
             this.PassTxt.TabIndex = 7;
+            this.PassTxt.UseSystemPasswordChar = true;
             this.PassTxt.TextChanged += new System.EventHandler(this.PassTxt_TextChanged);
             // 
-            // Loginbox
+            // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -149,7 +151,7 @@ namespace test
             this.Controls.Add(this.label1);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Loginbox";
+            this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "WatchDog";
             this.Load += new System.EventHandler(this.WatchDog_Load);

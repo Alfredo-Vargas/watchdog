@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WatchDog_V1;
 
 namespace test
 {
-    public partial class Loginbox : Form
+    public partial class Form1 : Form
     {
-        public Loginbox()
+        public Form1()
         {
             InitializeComponent();
         }
@@ -42,17 +43,28 @@ namespace test
             string Login = LoginTxt.Text;
             string pass = PassTxt.Text;
 
-            if (Login == "Harun" && pass == "WatchDog123");
+            if (Login == "Harun" && pass == "WatchDog123") {
+                Form2 main = new Form2();
+                main.Show();
+                this.Hide();
+                
+            }
             else
             {
                 MessageBox.Show("Password or Login incorrect try again");
+
             }
            
-                 
+            
             
         }
 
         private void PassTxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoginTxt_TextChanged(object sender, EventArgs e)
         {
 
         }
