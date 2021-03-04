@@ -1,7 +1,7 @@
 ﻿
 namespace test
 {
-    // comment test
+    // comment test 3
     partial class Loginbox
     {
         /// <summary>
