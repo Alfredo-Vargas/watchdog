@@ -56,7 +56,7 @@ namespace test
             this.Login.BackColor = System.Drawing.Color.Black;
             this.Login.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Login.ForeColor = System.Drawing.Color.Lime;
-            this.Login.Location = new System.Drawing.Point(196, 179);
+            this.Login.Location = new System.Drawing.Point(258, 200);
             this.Login.Name = "Login";
             this.Login.Size = new System.Drawing.Size(64, 23);
             this.Login.TabIndex = 1;
@@ -71,7 +71,7 @@ namespace test
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(900, 459);
+            this.button1.Location = new System.Drawing.Point(629, 486);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(143, 63);
             this.button1.TabIndex = 2;
@@ -86,7 +86,7 @@ namespace test
             this.button2.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.button2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.Location = new System.Drawing.Point(12, 459);
+            this.button2.Location = new System.Drawing.Point(12, 486);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(143, 63);
             this.button2.TabIndex = 3;
@@ -101,7 +101,7 @@ namespace test
             this.label2.BackColor = System.Drawing.Color.Black;
             this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Lime;
-            this.label2.Location = new System.Drawing.Point(153, 253);
+            this.label2.Location = new System.Drawing.Point(215, 254);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(107, 23);
             this.label2.TabIndex = 4;
@@ -115,7 +115,7 @@ namespace test
             this.LoginTxt.BackColor = System.Drawing.Color.Black;
             this.LoginTxt.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LoginTxt.ForeColor = System.Drawing.Color.Lime;
-            this.LoginTxt.Location = new System.Drawing.Point(308, 179);
+            this.LoginTxt.Location = new System.Drawing.Point(328, 204);
             this.LoginTxt.Name = "LoginTxt";
             this.LoginTxt.Size = new System.Drawing.Size(200, 23);
             this.LoginTxt.TabIndex = 5;
@@ -127,21 +127,19 @@ namespace test
             this.PassTxt.BackColor = System.Drawing.Color.Black;
             this.PassTxt.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PassTxt.ForeColor = System.Drawing.Color.Lime;
-            this.PassTxt.Location = new System.Drawing.Point(308, 253);
+            this.PassTxt.Location = new System.Drawing.Point(328, 254);
             this.PassTxt.Name = "PassTxt";
             this.PassTxt.Size = new System.Drawing.Size(200, 23);
-            this.PassTxt.TabIndex = 7;
+            this.PassTxt.TabIndex = 10;
             this.PassTxt.UseSystemPasswordChar = true;
-            this.PassTxt.TextChanged += new System.EventHandler(this.PassTxt_TextChanged);
+            this.PassTxt.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ControlText;
-            this.ClientSize = new System.Drawing.Size(1055, 534);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.PassTxt);
             this.Controls.Add(this.LoginTxt);
             this.Controls.Add(this.label2);
