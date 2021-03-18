@@ -16,10 +16,5 @@ namespace WatchDog_V1
         {
             InitializeComponent();
         }
-
-        private void Form3_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
