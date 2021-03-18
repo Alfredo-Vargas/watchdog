@@ -65,6 +65,7 @@ namespace test
             this.Login_Lable.Text = "Login";
             this.Login_Lable.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Login_Lable.Click += new System.EventHandler(this.Label2_Click);
+            this.Login.Click += new System.EventHandler(this.label2_Click);
             // 
             // button1
             // 
@@ -78,9 +79,8 @@ namespace test
             this.button1.Size = new System.Drawing.Size(143, 63);
             this.button1.TabIndex = 2;
             this.button1.Text = "Exit";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // Pass_Lable
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             this.Pass_Lable.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Pass_Lable.AutoSize = true;
@@ -94,6 +94,9 @@ namespace test
             this.Pass_Lable.Text = "Password";
             this.Pass_Lable.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Pass_Lable.Click += new System.EventHandler(this.Label2_Click_1);
+            this.label2.Text = "Password";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.Click += new System.EventHandler(this.label2_Click_1);
             // 
             // LoginTxt
             // 
@@ -163,15 +166,45 @@ namespace test
             this.Register_Lable.Text = "Register New User";
             this.Register_Lable.Click += new System.EventHandler(this.Register_Lable_Click);
             // 
-            // Form1
+            // button3
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button3.BackColor = System.Drawing.Color.Black;
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.button3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button3.Location = new System.Drawing.Point(12, 412);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(143, 63);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "Login";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button4.BackColor = System.Drawing.Color.Black;
+            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.button4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button4.Location = new System.Drawing.Point(629, 412);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(143, 63);
+            this.button4.TabIndex = 12;
+            this.button4.Text = "Exit";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // Form1
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(784, 487);
             this.Controls.Add(this.Register_Lable);
             this.Controls.Add(this.Exit_Button);
             this.Controls.Add(this.Login_Button);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlText;
+            this.ClientSize = new System.Drawing.Size(1176, 863);
             this.Controls.Add(this.PassTxt);
             this.Controls.Add(this.LoginTxt);
             this.Controls.Add(this.Pass_Lable);
@@ -195,12 +228,12 @@ namespace test
         private System.Windows.Forms.Label Login_Lable;
         private System.Windows.Forms.Button button1;
        
-        private System.Windows.Forms.Label Pass_Lable;
-        private System.Windows.Forms.TextBox LoginTxt;
-        private System.Windows.Forms.TextBox PassTxt;
         private System.Windows.Forms.Button Login_Button;
         private System.Windows.Forms.Button Exit_Button;
         private System.Windows.Forms.Label Register_Lable;
+        private System.Windows.Forms.Label Pass_Lable;
+        private System.Windows.Forms.TextBox LoginTxt;
+        private System.Windows.Forms.TextBox PassTxt;
     }
 }
 
