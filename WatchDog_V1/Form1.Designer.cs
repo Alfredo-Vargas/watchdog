@@ -65,7 +65,7 @@ namespace test
             this.Login_Lable.Text = "Login";
             this.Login_Lable.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Login_Lable.Click += new System.EventHandler(this.Label2_Click);
-         
+            this.Login.Click += new System.EventHandler(this.label2_Click);
             // 
             // button1
             // 
@@ -79,7 +79,8 @@ namespace test
             this.button1.Size = new System.Drawing.Size(143, 63);
             this.button1.TabIndex = 2;
             this.button1.Text = "Exit";
-
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             this.Pass_Lable.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Pass_Lable.AutoSize = true;
@@ -93,9 +94,9 @@ namespace test
             this.Pass_Lable.Text = "Password";
             this.Pass_Lable.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Pass_Lable.Click += new System.EventHandler(this.Label2_Click_1);
-   
-      
-     
+            this.label2.Text = "Password";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.Click += new System.EventHandler(this.label2_Click_1);
             // 
             // LoginTxt
             // 
