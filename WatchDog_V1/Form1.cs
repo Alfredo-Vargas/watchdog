@@ -56,8 +56,6 @@ namespace test
 
         private void Login()
         {
-            string Login = LoginTxt.Text;
-            string pass = PassTxt.Text;
 
             if (Login == "h" && pass == "w")
             {
