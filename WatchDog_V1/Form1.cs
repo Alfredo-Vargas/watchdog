@@ -43,7 +43,7 @@ namespace test
             string Login = LoginTxt.Text;
             string pass = PassTxt.Text;
 
-            if (Login == "Harun" && pass == "WatchDog123") {
+            if (Login == "" && pass == "") {
                 Form2 main = new Form2();
                 main.Show();
                 this.Hide();

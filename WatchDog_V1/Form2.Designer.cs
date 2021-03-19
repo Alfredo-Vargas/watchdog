@@ -28,118 +28,206 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
-            this.add_fbd = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.txtFolder = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.addButton = new System.Windows.Forms.Button();
+            this.watchDogButton = new System.Windows.Forms.Button();
+            this.securityButton = new System.Windows.Forms.Button();
+            this.eventLogButton = new System.Windows.Forms.Button();
+            this.backButton = new System.Windows.Forms.Button();
+            this.goButton = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.iconList = new System.Windows.Forms.ImageList(this.components);
+            this.filePathTextBox = new System.Windows.Forms.TextBox();
+            this.fileName = new System.Windows.Forms.Label();
+            this.fileType = new System.Windows.Forms.Label();
+            this.fileTypeLabel = new System.Windows.Forms.Label();
+            this.fileNameLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // add_fbd
+            // addButton
             // 
-            this.add_fbd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.add_fbd.BackColor = System.Drawing.Color.Black;
-            this.add_fbd.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.add_fbd.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.add_fbd.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.add_fbd.Location = new System.Drawing.Point(30, 16);
-            this.add_fbd.Name = "add_fbd";
-            this.add_fbd.Size = new System.Drawing.Size(143, 63);
-            this.add_fbd.TabIndex = 4;
-            this.add_fbd.Text = "ADD";
-            this.add_fbd.UseVisualStyleBackColor = false;
-            this.add_fbd.Click += new System.EventHandler(this.button2_Click);
+            this.addButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.addButton.BackColor = System.Drawing.Color.Black;
+            this.addButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.addButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.addButton.Location = new System.Drawing.Point(45, 25);
+            this.addButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(214, 97);
+            this.addButton.TabIndex = 4;
+            this.addButton.Text = "ADD";
+            this.addButton.UseVisualStyleBackColor = false;
+            this.addButton.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // watchDogButton
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button3.BackColor = System.Drawing.Color.Black;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.button3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button3.Location = new System.Drawing.Point(623, 16);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(143, 63);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "SETTINGS";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.watchDogButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.watchDogButton.BackColor = System.Drawing.Color.Black;
+            this.watchDogButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.watchDogButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.watchDogButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.watchDogButton.Location = new System.Drawing.Point(889, 25);
+            this.watchDogButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.watchDogButton.Name = "watchDogButton";
+            this.watchDogButton.Size = new System.Drawing.Size(214, 97);
+            this.watchDogButton.TabIndex = 4;
+            this.watchDogButton.Text = "WATCHDOG";
+            this.watchDogButton.UseVisualStyleBackColor = false;
+            this.watchDogButton.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button5
+            // securityButton
             // 
-            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button5.BackColor = System.Drawing.Color.Black;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.button5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button5.Location = new System.Drawing.Point(475, 16);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(143, 63);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "SECURITY";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.securityButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.securityButton.BackColor = System.Drawing.Color.Black;
+            this.securityButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.securityButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.securityButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.securityButton.Location = new System.Drawing.Point(609, 25);
+            this.securityButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.securityButton.Name = "securityButton";
+            this.securityButton.Size = new System.Drawing.Size(214, 97);
+            this.securityButton.TabIndex = 4;
+            this.securityButton.Text = "SECURITY";
+            this.securityButton.UseVisualStyleBackColor = false;
+            this.securityButton.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button6
+            // eventLogButton
             // 
-            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button6.BackColor = System.Drawing.Color.Black;
-            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.button6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button6.Location = new System.Drawing.Point(326, 16);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(143, 63);
-            this.button6.TabIndex = 4;
-            this.button6.Text = "EVENTLOG";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.eventLogButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.eventLogButton.BackColor = System.Drawing.Color.Black;
+            this.eventLogButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.eventLogButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eventLogButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.eventLogButton.Location = new System.Drawing.Point(329, 25);
+            this.eventLogButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.eventLogButton.Name = "eventLogButton";
+            this.eventLogButton.Size = new System.Drawing.Size(214, 97);
+            this.eventLogButton.TabIndex = 4;
+            this.eventLogButton.Text = "EVENTLOG";
+            this.eventLogButton.UseVisualStyleBackColor = false;
+            this.eventLogButton.Click += new System.EventHandler(this.button6_Click);
             // 
-            // txtFolder
+            // backButton
             // 
-            this.txtFolder.Location = new System.Drawing.Point(45, 133);
-            this.txtFolder.Margin = new System.Windows.Forms.Padding(2);
-            this.txtFolder.Multiline = true;
-            this.txtFolder.Name = "txtFolder";
-            this.txtFolder.Size = new System.Drawing.Size(375, 262);
-            this.txtFolder.TabIndex = 5;
-            this.txtFolder.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.backButton.Location = new System.Drawing.Point(45, 141);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(75, 26);
+            this.backButton.TabIndex = 5;
+            this.backButton.Text = "Back";
+            this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
-            // button1
+            // goButton
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.BackColor = System.Drawing.Color.Black;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(179, 16);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(143, 63);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "TOOLS";
-            this.button1.UseVisualStyleBackColor = false;
+            this.goButton.Location = new System.Drawing.Point(1028, 141);
+            this.goButton.Name = "goButton";
+            this.goButton.Size = new System.Drawing.Size(75, 26);
+            this.goButton.TabIndex = 6;
+            this.goButton.Text = "Go";
+            this.goButton.UseVisualStyleBackColor = true;
+            this.goButton.Click += new System.EventHandler(this.goButton_Click);
+            // 
+            // listView1
+            // 
+            this.listView1.HideSelection = false;
+            this.listView1.LargeImageList = this.iconList;
+            this.listView1.Location = new System.Drawing.Point(45, 183);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(1058, 478);
+            this.listView1.SmallImageList = this.iconList;
+            this.listView1.TabIndex = 7;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listView1_ItemSelectionChanged);
+            this.listView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseDoubleClick);
+            // 
+            // iconList
+            // 
+            this.iconList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("iconList.ImageStream")));
+            this.iconList.TransparentColor = System.Drawing.Color.Transparent;
+            this.iconList.Images.SetKeyName(0, "Basic-Document-Blank.ico");
+            this.iconList.Images.SetKeyName(1, "Folders-Windows-Folder.ico");
+            this.iconList.Images.SetKeyName(2, "mp3.ico");
+            this.iconList.Images.SetKeyName(3, "exe.ico");
+            this.iconList.Images.SetKeyName(4, "mp4.ico");
+            this.iconList.Images.SetKeyName(5, "pdf.ico");
+            this.iconList.Images.SetKeyName(6, "doc.ico");
+            this.iconList.Images.SetKeyName(7, "png.ico");
+            // 
+            // filePathTextBox
+            // 
+            this.filePathTextBox.Location = new System.Drawing.Point(126, 141);
+            this.filePathTextBox.Name = "filePathTextBox";
+            this.filePathTextBox.Size = new System.Drawing.Size(896, 26);
+            this.filePathTextBox.TabIndex = 8;
+            // 
+            // fileName
+            // 
+            this.fileName.AutoSize = true;
+            this.fileName.ForeColor = System.Drawing.SystemColors.Control;
+            this.fileName.Location = new System.Drawing.Point(62, 678);
+            this.fileName.Name = "fileName";
+            this.fileName.Size = new System.Drawing.Size(80, 20);
+            this.fileName.TabIndex = 9;
+            this.fileName.Text = "File Name";
+            // 
+            // fileType
+            // 
+            this.fileType.AutoSize = true;
+            this.fileType.ForeColor = System.Drawing.SystemColors.Control;
+            this.fileType.Location = new System.Drawing.Point(751, 678);
+            this.fileType.Name = "fileType";
+            this.fileType.Size = new System.Drawing.Size(72, 20);
+            this.fileType.TabIndex = 11;
+            this.fileType.Text = "File Type";
+            // 
+            // fileTypeLabel
+            // 
+            this.fileTypeLabel.AutoSize = true;
+            this.fileTypeLabel.ForeColor = System.Drawing.Color.White;
+            this.fileTypeLabel.Location = new System.Drawing.Point(885, 678);
+            this.fileTypeLabel.Name = "fileTypeLabel";
+            this.fileTypeLabel.Size = new System.Drawing.Size(19, 20);
+            this.fileTypeLabel.TabIndex = 12;
+            this.fileTypeLabel.Text = "--";
+            // 
+            // fileNameLabel
+            // 
+            this.fileNameLabel.AutoSize = true;
+            this.fileNameLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.fileNameLabel.Location = new System.Drawing.Point(212, 678);
+            this.fileNameLabel.Name = "fileNameLabel";
+            this.fileNameLabel.Size = new System.Drawing.Size(19, 20);
+            this.fileNameLabel.TabIndex = 10;
+            this.fileNameLabel.Text = "--";
             // 
             // Form2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlText;
-            this.ClientSize = new System.Drawing.Size(784, 487);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.txtFolder);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.add_fbd);
+            this.ClientSize = new System.Drawing.Size(1176, 749);
+            this.Controls.Add(this.fileTypeLabel);
+            this.Controls.Add(this.fileType);
+            this.Controls.Add(this.fileNameLabel);
+            this.Controls.Add(this.fileName);
+            this.Controls.Add(this.filePathTextBox);
+            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.goButton);
+            this.Controls.Add(this.backButton);
+            this.Controls.Add(this.watchDogButton);
+            this.Controls.Add(this.securityButton);
+            this.Controls.Add(this.eventLogButton);
+            this.Controls.Add(this.addButton);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "WatchDog";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
             this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -147,12 +235,18 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button add_fbd;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
-        private System.Windows.Forms.TextBox txtFolder;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.Button watchDogButton;
+        private System.Windows.Forms.Button securityButton;
+        private System.Windows.Forms.Button eventLogButton;
+        private System.Windows.Forms.Button backButton;
+        private System.Windows.Forms.Button goButton;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.TextBox filePathTextBox;
+        private System.Windows.Forms.Label fileName;
+        private System.Windows.Forms.Label fileType;
+        private System.Windows.Forms.Label fileTypeLabel;
+        private System.Windows.Forms.ImageList iconList;
+        private System.Windows.Forms.Label fileNameLabel;
     }
 }
