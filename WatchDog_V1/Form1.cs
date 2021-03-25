@@ -30,7 +30,9 @@ namespace test
 
         private void mm(object sender, EventArgs e)
         {
-            this.Close();
+            Form4 Registration = new Form4();
+            Registration.Show();
+            this.Hide();
         }
 
         private void label2_Click_1(object sender, EventArgs e)
@@ -38,25 +40,29 @@ namespace test
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void LoginForm()
         {
             string Login = LoginTxt.Text;
             string pass = PassTxt.Text;
 
-            if (Login == "" && pass == "") {
+            if (Login == "" && pass == "")
+            {
                 Form2 main = new Form2();
                 main.Show();
                 this.Hide();
-                
+
             }
             else
             {
                 MessageBox.Show("Password or Login incorrect try again");
 
             }
-           
-            
-            
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            LoginForm();   
         }
 
         private void PassTxt_TextChanged(object sender, EventArgs e)
@@ -72,6 +78,14 @@ namespace test
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void PassTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)Keys.Enter)
+            {
+                LoginForm();
+            }
         }
     }
 }
