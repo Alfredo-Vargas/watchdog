@@ -113,7 +113,7 @@
             // 
             this.backButton.Location = new System.Drawing.Point(45, 141);
             this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(75, 26);
+            this.backButton.Size = new System.Drawing.Size(75, 36);
             this.backButton.TabIndex = 5;
             this.backButton.Text = "Back";
             this.backButton.UseVisualStyleBackColor = true;
@@ -123,7 +123,7 @@
             // 
             this.goButton.Location = new System.Drawing.Point(1028, 141);
             this.goButton.Name = "goButton";
-            this.goButton.Size = new System.Drawing.Size(75, 26);
+            this.goButton.Size = new System.Drawing.Size(75, 36);
             this.goButton.TabIndex = 6;
             this.goButton.Text = "Go";
             this.goButton.UseVisualStyleBackColor = true;
@@ -161,6 +161,7 @@
             this.filePathTextBox.Name = "filePathTextBox";
             this.filePathTextBox.Size = new System.Drawing.Size(896, 26);
             this.filePathTextBox.TabIndex = 8;
+            this.filePathTextBox.TextChanged += new System.EventHandler(this.filePathTextBox_TextChanged);
             // 
             // fileName
             // 

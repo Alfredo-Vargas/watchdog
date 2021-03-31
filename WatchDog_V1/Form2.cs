@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Diagnostics;       // to be able to open a file
 using System.IO;                // to deal file/folder attributes
+using System.Security.AccessControl; // to get access ACL options
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,7 +15,7 @@ namespace WatchDog_V1
 {
     public partial class Form2 : Form
     {
-        private string filePath = "D:";
+        private string filePath = "C:\\Users";
         private bool isFile = false;
         private string currentlySelectedItemName = "";
         public Form2()
@@ -183,7 +184,8 @@ namespace WatchDog_V1
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            Form5 main = new Form5();
+            main.Show();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -201,5 +203,12 @@ namespace WatchDog_V1
             goBack();
             loadButtonAction();
         }
+
+        private void filePathTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }
