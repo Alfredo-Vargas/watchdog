@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace test
+namespace WatchDog_V1
 {
     static class Program
     {

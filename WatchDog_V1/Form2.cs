@@ -174,7 +174,9 @@ namespace WatchDog_V1
 
         private void button6_Click(object sender, EventArgs e)
         {
-
+            Form6 Event = new Form6();
+            Event.Show();
+            this.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -184,7 +186,7 @@ namespace WatchDog_V1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Form5 main = new Form5();
+            Form3 main = new Form3();
             main.Show();
         }
 

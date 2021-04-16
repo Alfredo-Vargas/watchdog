@@ -9,13 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WatchDog_V1;
 
-namespace test
+namespace WatchDog_V1
 {
     public partial class Form1 : Form
     {
         public Form1()
         {
             InitializeComponent();
+            PassTxt.PasswordChar = '*';
         }
 
         private void WatchDog_Load(object sender, EventArgs e)
@@ -45,7 +46,7 @@ namespace test
             string Login = LoginTxt.Text;
             string pass = PassTxt.Text;
 
-            if (Login == "" && pass == "")
+            if (Login == Form4.R_Login && pass == Form4.R_Pass)
             {
                 Form2 main = new Form2();
                 main.Show();
@@ -86,6 +87,11 @@ namespace test
             {
                 LoginForm();
             }
+        }
+
+        private void Form1Closing(object sender, FormClosingEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
         }
     }
 }

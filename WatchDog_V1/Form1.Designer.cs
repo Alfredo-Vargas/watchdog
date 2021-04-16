@@ -1,5 +1,5 @@
 ﻿
-namespace test
+namespace WatchDog_V1
 {
     // comment test
     partial class Form1
@@ -131,7 +131,6 @@ namespace test
             this.PassTxt.Name = "PassTxt";
             this.PassTxt.Size = new System.Drawing.Size(200, 23);
             this.PassTxt.TabIndex = 10;
-            this.PassTxt.UseSystemPasswordChar = true;
             this.PassTxt.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             this.PassTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PassTxt_KeyPress);
             // 
@@ -153,6 +152,7 @@ namespace test
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "WatchDog";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1Closing);
             this.Load += new System.EventHandler(this.WatchDog_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
