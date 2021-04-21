@@ -17,24 +17,27 @@ namespace WatchDog_V1
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelWatchDog_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form5_Load(object sender, EventArgs e)
-        {
-
-        }
         private void Form5_FormClosing(object sender, FormClosingEventArgs e)
         {
             System.Windows.Forms.Application.Exit();
         }
 
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                VisitLink();
+            }
+            catch (Exception ex )
+            {
+                MessageBox.Show("Unable to open link that was clicked.");
+            }
+        }
+
+        private void VisitLink()
+        {
+            linkLabel1.LinkVisited = true;
+            System.Diagnostics.Process.Start("https://github.com/Alfredo-Vargas/watchdog");
+        }
     }
 }

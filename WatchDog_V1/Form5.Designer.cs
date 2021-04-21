@@ -56,7 +56,6 @@ namespace WatchDog_V1
             this.label9.TabIndex = 5;
             this.label9.Text = "Thank You for Signing Up";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label2
             // 
@@ -70,7 +69,6 @@ namespace WatchDog_V1
             this.label2.TabIndex = 7;
             this.label2.Text = "E-Mail address:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -84,7 +82,6 @@ namespace WatchDog_V1
             this.label3.TabIndex = 9;
             this.label3.Text = "Password :";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -98,7 +95,6 @@ namespace WatchDog_V1
             this.label4.TabIndex = 11;
             this.label4.Text = "Phone Number :";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label1
             // 
@@ -112,7 +108,6 @@ namespace WatchDog_V1
             this.label1.TabIndex = 6;
             this.label1.Text = "Login Name :";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label5
             // 
@@ -126,7 +121,6 @@ namespace WatchDog_V1
             this.label5.TabIndex = 12;
             this.label5.Text = "...";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label8
             // 
@@ -140,7 +134,6 @@ namespace WatchDog_V1
             this.label8.TabIndex = 13;
             this.label8.Text = "...";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label7
             // 
@@ -154,7 +147,6 @@ namespace WatchDog_V1
             this.label7.TabIndex = 14;
             this.label7.Text = "...";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label6
             // 
@@ -168,7 +160,6 @@ namespace WatchDog_V1
             this.label6.TabIndex = 15;
             this.label6.Text = "...";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // button1
             // 
@@ -208,7 +199,6 @@ namespace WatchDog_V1
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(200, 13);
             this.textBox1.TabIndex = 23;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // Form5
             // 

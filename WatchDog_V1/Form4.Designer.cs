@@ -55,7 +55,6 @@ namespace WatchDog_V1
             this.label1.Size = new System.Drawing.Size(195, 23);
             this.label1.TabIndex = 4;
             this.label1.Text = "Enter Login Name :";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -68,7 +67,6 @@ namespace WatchDog_V1
             this.label2.Size = new System.Drawing.Size(176, 23);
             this.label2.TabIndex = 5;
             this.label2.Text = "Enter Password :";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -81,7 +79,6 @@ namespace WatchDog_V1
             this.label3.Size = new System.Drawing.Size(193, 23);
             this.label3.TabIndex = 6;
             this.label3.Text = "Repeat Password :";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // textBox1
             // 
@@ -92,7 +89,6 @@ namespace WatchDog_V1
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(245, 23);
             this.textBox1.TabIndex = 11;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // textBox2
@@ -105,7 +101,6 @@ namespace WatchDog_V1
             this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(245, 23);
             this.textBox2.TabIndex = 12;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // textBox3
@@ -118,7 +113,6 @@ namespace WatchDog_V1
             this.textBox3.PasswordChar = '*';
             this.textBox3.Size = new System.Drawing.Size(245, 23);
             this.textBox3.TabIndex = 13;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.textBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // label4
@@ -132,7 +126,6 @@ namespace WatchDog_V1
             this.label4.Size = new System.Drawing.Size(138, 23);
             this.label4.TabIndex = 14;
             this.label4.Text = "Enter E-Mail :";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // textBox4
             // 
@@ -143,7 +136,6 @@ namespace WatchDog_V1
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(245, 23);
             this.textBox4.TabIndex = 15;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             this.textBox4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // label5
@@ -158,7 +150,6 @@ namespace WatchDog_V1
             this.label5.TabIndex = 16;
             this.label5.Text = "Sign Up";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 
@@ -171,7 +162,6 @@ namespace WatchDog_V1
             this.label6.Size = new System.Drawing.Size(154, 23);
             this.label6.TabIndex = 18;
             this.label6.Text = "Phone-number";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // textBox5
             // 
@@ -182,7 +172,6 @@ namespace WatchDog_V1
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(245, 23);
             this.textBox5.TabIndex = 19;
-            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             this.textBox5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // button1
@@ -222,7 +211,6 @@ namespace WatchDog_V1
             this.Name = "Form4";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "WatchDog";
-            this.Load += new System.EventHandler(this.Form4_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -44,8 +44,9 @@ namespace WatchDog_V1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(51, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
             // 
@@ -56,13 +57,13 @@ namespace WatchDog_V1
             this.Login.BackColor = System.Drawing.Color.Black;
             this.Login.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Login.ForeColor = System.Drawing.Color.Lime;
-            this.Login.Location = new System.Drawing.Point(258, 200);
+            this.Login.Location = new System.Drawing.Point(387, 308);
+            this.Login.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Login.Name = "Login";
-            this.Login.Size = new System.Drawing.Size(64, 23);
+            this.Login.Size = new System.Drawing.Size(96, 34);
             this.Login.TabIndex = 1;
             this.Login.Text = "Login";
             this.Login.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Login.Click += new System.EventHandler(this.label2_Click);
             // 
             // button1
             // 
@@ -71,9 +72,10 @@ namespace WatchDog_V1
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(629, 486);
+            this.button1.Location = new System.Drawing.Point(944, 748);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(143, 63);
+            this.button1.Size = new System.Drawing.Size(214, 97);
             this.button1.TabIndex = 2;
             this.button1.Text = "Register";
             this.button1.UseVisualStyleBackColor = false;
@@ -86,9 +88,10 @@ namespace WatchDog_V1
             this.button2.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.button2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.Location = new System.Drawing.Point(12, 486);
+            this.button2.Location = new System.Drawing.Point(18, 748);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(143, 63);
+            this.button2.Size = new System.Drawing.Size(214, 97);
             this.button2.TabIndex = 3;
             this.button2.Text = "Login";
             this.button2.UseVisualStyleBackColor = false;
@@ -101,13 +104,13 @@ namespace WatchDog_V1
             this.label2.BackColor = System.Drawing.Color.Black;
             this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Lime;
-            this.label2.Location = new System.Drawing.Point(215, 254);
+            this.label2.Location = new System.Drawing.Point(322, 391);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 23);
+            this.label2.Size = new System.Drawing.Size(159, 34);
             this.label2.TabIndex = 4;
             this.label2.Text = "Password";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label2.Click += new System.EventHandler(this.label2_Click_1);
             // 
             // LoginTxt
             // 
@@ -115,11 +118,11 @@ namespace WatchDog_V1
             this.LoginTxt.BackColor = System.Drawing.Color.Black;
             this.LoginTxt.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LoginTxt.ForeColor = System.Drawing.Color.Lime;
-            this.LoginTxt.Location = new System.Drawing.Point(328, 204);
+            this.LoginTxt.Location = new System.Drawing.Point(492, 314);
+            this.LoginTxt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.LoginTxt.Name = "LoginTxt";
-            this.LoginTxt.Size = new System.Drawing.Size(200, 23);
+            this.LoginTxt.Size = new System.Drawing.Size(298, 30);
             this.LoginTxt.TabIndex = 5;
-            this.LoginTxt.TextChanged += new System.EventHandler(this.LoginTxt_TextChanged);
             // 
             // PassTxt
             // 
@@ -127,19 +130,19 @@ namespace WatchDog_V1
             this.PassTxt.BackColor = System.Drawing.Color.Black;
             this.PassTxt.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PassTxt.ForeColor = System.Drawing.Color.Lime;
-            this.PassTxt.Location = new System.Drawing.Point(328, 254);
+            this.PassTxt.Location = new System.Drawing.Point(492, 391);
+            this.PassTxt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PassTxt.Name = "PassTxt";
-            this.PassTxt.Size = new System.Drawing.Size(200, 23);
+            this.PassTxt.Size = new System.Drawing.Size(298, 30);
             this.PassTxt.TabIndex = 10;
-            this.PassTxt.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             this.PassTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PassTxt_KeyPress);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlText;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(1176, 863);
             this.Controls.Add(this.PassTxt);
             this.Controls.Add(this.LoginTxt);
             this.Controls.Add(this.label2);
@@ -149,11 +152,11 @@ namespace WatchDog_V1
             this.Controls.Add(this.label1);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "WatchDog";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1Closing);
-            this.Load += new System.EventHandler(this.WatchDog_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

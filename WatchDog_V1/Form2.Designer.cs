@@ -59,7 +59,6 @@
             this.addButton.TabIndex = 4;
             this.addButton.Text = "ADD";
             this.addButton.UseVisualStyleBackColor = false;
-            this.addButton.Click += new System.EventHandler(this.button2_Click);
             // 
             // watchDogButton
             // 
@@ -91,7 +90,6 @@
             this.securityButton.TabIndex = 4;
             this.securityButton.Text = "SECURITY";
             this.securityButton.UseVisualStyleBackColor = false;
-            this.securityButton.Click += new System.EventHandler(this.button5_Click);
             // 
             // eventLogButton
             // 
@@ -171,7 +169,6 @@
             this.filePathTextBox.Name = "filePathTextBox";
             this.filePathTextBox.Size = new System.Drawing.Size(599, 20);
             this.filePathTextBox.TabIndex = 8;
-            this.filePathTextBox.TextChanged += new System.EventHandler(this.filePathTextBox_TextChanged);
             // 
             // fileName
             // 
