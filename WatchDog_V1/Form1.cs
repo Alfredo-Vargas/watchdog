@@ -19,13 +19,6 @@ namespace WatchDog_V1
             PassTxt.PasswordChar = '*';
         }
 
-        private void mm(object sender, EventArgs e)
-        {
-            Form4 Registration = new Form4();
-            Registration.Show();
-            this.Hide();
-        }
-
         private void LoginForm()
         {
             string Login = LoginTxt.Text;
@@ -46,7 +39,7 @@ namespace WatchDog_V1
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
             LoginForm();   
         }
@@ -64,5 +57,11 @@ namespace WatchDog_V1
             System.Windows.Forms.Application.Exit();
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Form4 Registration = new Form4();
+            Registration.Show();
+            this.Hide();
+        }
     }
 }
