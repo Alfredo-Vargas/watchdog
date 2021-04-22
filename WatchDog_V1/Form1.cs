@@ -19,11 +19,131 @@ namespace WatchDog_V1
             PassTxt.PasswordChar = '*';
         }
 
+        private void WatchDog_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void mm(object sender, EventArgs e)
         {
             Form4 Registration = new Form4();
             Registration.Show();
             this.Hide();
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+
+        }
+
+        private void mm(object sender, EventArgs e)
+        {
+            Form4 Registration = new Form4();
+            Registration.Show();
+            this.Hide();
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+
+        }
+
+        private void mm(object sender, EventArgs e)
+        {
+            Form4 Registration = new Form4();
+            Registration.Show();
+            this.Hide();
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+
+        }
+
+        private void mm(object sender, EventArgs e)
+        {
+            Form4 Registration = new Form4();
+            Registration.Show();
+            this.Hide();
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+
+        }
+
+        private void mm(object sender, EventArgs e)
+        {
+            Form4 Registration = new Form4();
+            Registration.Show();
+            this.Hide();
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+
+        }
+
+        private void mm(object sender, EventArgs e)
+        {
+            Form4 Registration = new Form4();
+            Registration.Show();
+            this.Hide();
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+
+        }
+
+        private void mm(object sender, EventArgs e)
+        {
+            Form4 Registration = new Form4();
+            Registration.Show();
+            this.Hide();
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+
+        }
+
+        private void mm(object sender, EventArgs e)
+        {
+            Form4 Registration = new Form4();
+            Registration.Show();
+            this.Hide();
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
         }
 
         private void LoginForm()
@@ -46,7 +166,7 @@ namespace WatchDog_V1
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
             LoginForm();   
         }
@@ -64,5 +184,11 @@ namespace WatchDog_V1
             System.Windows.Forms.Application.Exit();
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Form4 Registration = new Form4();
+            Registration.Show();
+            this.Hide();
+        }
     }
 }

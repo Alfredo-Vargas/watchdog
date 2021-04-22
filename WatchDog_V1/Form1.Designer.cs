@@ -38,6 +38,8 @@ namespace WatchDog_V1
             this.label2 = new System.Windows.Forms.Label();
             this.LoginTxt = new System.Windows.Forms.TextBox();
             this.PassTxt = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -79,7 +81,6 @@ namespace WatchDog_V1
             this.button1.TabIndex = 2;
             this.button1.Text = "Register";
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.mm);
             // 
             // button2
             // 
@@ -95,7 +96,7 @@ namespace WatchDog_V1
             this.button2.TabIndex = 3;
             this.button2.Text = "Login";
             this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.button3_Click);
             // 
             // label2
             // 
@@ -137,12 +138,44 @@ namespace WatchDog_V1
             this.PassTxt.TabIndex = 10;
             this.PassTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PassTxt_KeyPress);
             // 
+            // button3
+            // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.BackColor = System.Drawing.Color.Black;
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.button3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button3.Location = new System.Drawing.Point(3, 421);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(143, 63);
+            this.button3.TabIndex = 21;
+            this.button3.Text = "Login";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button4.BackColor = System.Drawing.Color.Black;
+            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.button4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button4.Location = new System.Drawing.Point(638, 421);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(143, 63);
+            this.button4.TabIndex = 22;
+            this.button4.Text = "Register";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlText;
-            this.ClientSize = new System.Drawing.Size(1176, 863);
+            this.ClientSize = new System.Drawing.Size(784, 487);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.PassTxt);
             this.Controls.Add(this.LoginTxt);
             this.Controls.Add(this.label2);
@@ -171,6 +204,8 @@ namespace WatchDog_V1
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox LoginTxt;
         private System.Windows.Forms.TextBox PassTxt;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }
 
