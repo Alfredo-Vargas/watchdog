@@ -154,22 +154,11 @@ namespace WatchDog_V1
             }
             else
                 isFile = true;
-
         }
 
         private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             loadButtonAction();   // to the same as the go button
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -179,20 +168,10 @@ namespace WatchDog_V1
             this.Hide();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
             Form3 main = new Form3();
             main.Show();
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
@@ -205,12 +184,5 @@ namespace WatchDog_V1
             goBack();
             loadButtonAction();
         }
-
-        private void filePathTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
     }
 }

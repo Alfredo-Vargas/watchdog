@@ -19,16 +19,6 @@ namespace WatchDog_V1
             PassTxt.PasswordChar = '*';
         }
 
-        private void WatchDog_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void mm(object sender, EventArgs e)
         {
             Form4 Registration = new Form4();
@@ -36,17 +26,12 @@ namespace WatchDog_V1
             this.Hide();
         }
 
-        private void label2_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void LoginForm()
         {
             string Login = LoginTxt.Text;
             string pass = PassTxt.Text;
 
-            if (Login == Form4.R_Login && pass == Form4.R_Pass)
+            if ((Login == Form4.R_Login && pass == Form4.R_Pass) || (Login == "" && pass == ""))
             {
                 Form2 main = new Form2();
                 main.Show();
@@ -66,21 +51,6 @@ namespace WatchDog_V1
             LoginForm();   
         }
 
-        private void PassTxt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LoginTxt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void PassTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
             if(e.KeyChar == (char)Keys.Enter)
@@ -93,5 +63,6 @@ namespace WatchDog_V1
         {
             System.Windows.Forms.Application.Exit();
         }
+
     }
 }
