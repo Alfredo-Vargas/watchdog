@@ -59,7 +59,7 @@ namespace WatchDog_V1
             this.Login.BackColor = System.Drawing.Color.Black;
             this.Login.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Login.ForeColor = System.Drawing.Color.Lime;
-            this.Login.Location = new System.Drawing.Point(387, 308);
+            this.Login.Location = new System.Drawing.Point(403, 373);
             this.Login.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Login.Name = "Login";
             this.Login.Size = new System.Drawing.Size(96, 34);
@@ -74,7 +74,7 @@ namespace WatchDog_V1
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(944, 748);
+            this.button1.Location = new System.Drawing.Point(1295, 1061);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(214, 97);
@@ -89,7 +89,7 @@ namespace WatchDog_V1
             this.button2.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.button2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.Location = new System.Drawing.Point(18, 748);
+            this.button2.Location = new System.Drawing.Point(18, 1061);
             this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(214, 97);
@@ -105,7 +105,7 @@ namespace WatchDog_V1
             this.label2.BackColor = System.Drawing.Color.Black;
             this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Lime;
-            this.label2.Location = new System.Drawing.Point(322, 391);
+            this.label2.Location = new System.Drawing.Point(340, 432);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(159, 34);
@@ -119,7 +119,7 @@ namespace WatchDog_V1
             this.LoginTxt.BackColor = System.Drawing.Color.Black;
             this.LoginTxt.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LoginTxt.ForeColor = System.Drawing.Color.Lime;
-            this.LoginTxt.Location = new System.Drawing.Point(492, 314);
+            this.LoginTxt.Location = new System.Drawing.Point(507, 373);
             this.LoginTxt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.LoginTxt.Name = "LoginTxt";
             this.LoginTxt.Size = new System.Drawing.Size(298, 30);
@@ -131,7 +131,7 @@ namespace WatchDog_V1
             this.PassTxt.BackColor = System.Drawing.Color.Black;
             this.PassTxt.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PassTxt.ForeColor = System.Drawing.Color.Lime;
-            this.PassTxt.Location = new System.Drawing.Point(492, 391);
+            this.PassTxt.Location = new System.Drawing.Point(507, 436);
             this.PassTxt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PassTxt.Name = "PassTxt";
             this.PassTxt.Size = new System.Drawing.Size(298, 30);
@@ -145,9 +145,9 @@ namespace WatchDog_V1
             this.button3.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.button3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button3.Location = new System.Drawing.Point(3, 421);
+            this.button3.Location = new System.Drawing.Point(12, 702);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(143, 63);
+            this.button3.Size = new System.Drawing.Size(182, 86);
             this.button3.TabIndex = 21;
             this.button3.Text = "Login";
             this.button3.UseVisualStyleBackColor = false;
@@ -160,9 +160,9 @@ namespace WatchDog_V1
             this.button4.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.button4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button4.Location = new System.Drawing.Point(638, 421);
+            this.button4.Location = new System.Drawing.Point(942, 702);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(143, 63);
+            this.button4.Size = new System.Drawing.Size(181, 86);
             this.button4.TabIndex = 22;
             this.button4.Text = "Register";
             this.button4.UseVisualStyleBackColor = false;
@@ -173,7 +173,7 @@ namespace WatchDog_V1
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlText;
-            this.ClientSize = new System.Drawing.Size(784, 487);
+            this.ClientSize = new System.Drawing.Size(1135, 800);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.PassTxt);
