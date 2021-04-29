@@ -19,6 +19,12 @@ namespace WatchDog_V1
             PassTxt.PasswordChar = '*';
         }
 
+       private void mm(object sender, EventArgs e)
+        {
+            Form4 Registration = new Form4();
+            Registration.Show();
+            this.Hide();
+        }
         private void LoginForm()
         {
             string Login = LoginTxt.Text;
