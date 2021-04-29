@@ -5,8 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Diagnostics;       // to be able to open a file
-using System.IO;                // to deal file/folder attributes
+using System.Diagnostics;            // to be able to open a file
+using System.IO;                     // to deal file/folder attributes
 using System.Security.AccessControl; // to get access ACL options
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -183,6 +183,12 @@ namespace WatchDog_V1
         {
             goBack();
             loadButtonAction();
+        }
+        // EVENT HANDLER AT RUN TIME //
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+            if (isFile)
+                MessageBox.Show("Testing Right Click");
         }
     }
 }

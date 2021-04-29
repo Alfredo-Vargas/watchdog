@@ -37,12 +37,17 @@
             this.backButton = new System.Windows.Forms.Button();
             this.goButton = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.lockFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.makeReadOnlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iconList = new System.Windows.Forms.ImageList(this.components);
             this.filePathTextBox = new System.Windows.Forms.TextBox();
             this.fileName = new System.Windows.Forms.Label();
             this.fileType = new System.Windows.Forms.Label();
             this.fileTypeLabel = new System.Windows.Forms.Label();
             this.fileNameLabel = new System.Windows.Forms.Label();
+            this.makeExecuteOnlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // addButton
@@ -135,6 +140,7 @@
             this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.listView1.ContextMenuStrip = this.contextMenuStrip1;
             this.listView1.HideSelection = false;
             this.listView1.LargeImageList = this.iconList;
             this.listView1.Location = new System.Drawing.Point(30, 119);
@@ -146,6 +152,27 @@
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listView1_ItemSelectionChanged);
             this.listView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseDoubleClick);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lockFileToolStripMenuItem,
+            this.makeReadOnlyToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(133, 48);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+            // 
+            // lockFileToolStripMenuItem
+            // 
+            this.lockFileToolStripMenuItem.Name = "lockFileToolStripMenuItem";
+            this.lockFileToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.lockFileToolStripMenuItem.Text = "Lock File";
+            // 
+            // makeReadOnlyToolStripMenuItem
+            // 
+            this.makeReadOnlyToolStripMenuItem.Name = "makeReadOnlyToolStripMenuItem";
+            this.makeReadOnlyToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.makeReadOnlyToolStripMenuItem.Text = "Unlock File";
             // 
             // iconList
             // 
@@ -218,6 +245,12 @@
             this.fileNameLabel.TabIndex = 10;
             this.fileNameLabel.Text = "--";
             // 
+            // makeExecuteOnlyToolStripMenuItem
+            // 
+            this.makeExecuteOnlyToolStripMenuItem.Name = "makeExecuteOnlyToolStripMenuItem";
+            this.makeExecuteOnlyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.makeExecuteOnlyToolStripMenuItem.Text = "Make Execute Only";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -244,6 +277,7 @@
             this.Text = "WatchDog";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
             this.Load += new System.EventHandler(this.Form2_Load);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,5 +297,9 @@
         private System.Windows.Forms.Label fileTypeLabel;
         private System.Windows.Forms.ImageList iconList;
         private System.Windows.Forms.Label fileNameLabel;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem lockFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem makeReadOnlyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem makeExecuteOnlyToolStripMenuItem;
     }
 }
