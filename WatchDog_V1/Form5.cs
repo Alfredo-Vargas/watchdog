@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace WatchDog_V1
 {
     public partial class Form5 : Form
     {
+        
         public Form5()
         {
             InitializeComponent();
@@ -33,8 +35,48 @@ namespace WatchDog_V1
             this.Hide();
         }
 
+        
+
         private void button2_Click(object sender, EventArgs e)
         {
+            
+            
+            string path = @"./Data/Data.txt";
+            String dir = @"./Data";
+
+            if(!Directory.Exists(dir))
+            {
+                Directory.CreateDirectory(dir);
+            }
+          
+            if (!File.Exists(path))
+            { 
+                using (StreamWriter sw = File.CreateText(path))
+                {
+                    sw.WriteLine("Login : " + Form4.R_Login);
+                    sw.WriteLine("Password : " + Form4.R_Pass);
+                    sw.WriteLine("E-Mail : " + Form4.R_email);
+                    sw.WriteLine("Phone : " + Form4.R_Phone);
+                    
+                }
+            }
+
+            else
+            {
+                
+                using (StreamWriter sw = File.AppendText(path))
+                {
+
+                    sw.WriteLine("\nLogin : " + Form4.R_Login);
+                    sw.WriteLine("Password : " + Form4.R_Pass);
+                    sw.WriteLine("E-Mail : " + Form4.R_email);
+                    sw.WriteLine("Phone : " + Form4.R_Phone);
+                }
+                
+            }
+           
+                
+            
             Form1 login = new Form1();
             login.Show();
             this.Hide();

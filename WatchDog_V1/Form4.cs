@@ -20,7 +20,7 @@ namespace WatchDog_V1
         public Form4()
         {
             InitializeComponent();
-            textBox2.MaxLength = 14;
+            textBox2.MaxLength = 18;
         }
         private void conformation()
         {
@@ -32,18 +32,61 @@ namespace WatchDog_V1
             string Pass1 = textBox2.Text;
             string Pass2 = textBox3.Text;
 
-            if (Pass1 == Pass2)
+
+            int validConditions = 0;
+            foreach (char c in Pass1)
             {
-                Form5 y = new Form5();
-                y.Show();
-                this.Hide();
+                if (c >= 'a' && c <= 'z')
+                {
+                    validConditions++;
+                    
+                }
+            }
+            foreach (char c in Pass1)
+            {
+                if (c >= 'A' && c <= 'Z')
+                {
+                    validConditions++;
+                    
+                }
+            }
+
+            if (validConditions == 0)
+            {
+                MessageBox.Show("The password restrictions have not been followed"); 
+            }
+            foreach (char c in Pass1)
+            {
+                if (c >= '0' && c <= '9')
+                {
+                    validConditions++;
+                   
+                }
+                if (validConditions == 1)
+                {
+                    MessageBox.Show("The password restrictions have not been followed");
+                   
+                }
+                if (validConditions == 2)
+                {
+                    if (Pass1 == Pass2)
+                    {
+                        Form5 y = new Form5();
+                        y.Show();
+                        this.Hide();
+
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Fields not filled in correctly\n\tTry again...");
+                       
+                    }
+
+                }
                 
             }
 
-            else
-            {
-                MessageBox.Show("Fields not filled in correctly\n\tTry again...");
-            }
 
         }
 
@@ -60,6 +103,11 @@ namespace WatchDog_V1
             {
                 conformation();
             }
+        }
+
+        private void Form4_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
