@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,8 +21,13 @@ namespace WatchDog_V1
         public Form4()
         {
             InitializeComponent();
-            textBox2.MaxLength = 18;
+            textBox2.MaxLength = 16;
+            textBox3.MaxLength = 16;
+            textBox5.MaxLength = 15;
+            
         }
+
+
         private void conformation()
         {
             R_Login = textBox1.Text;
@@ -31,69 +37,103 @@ namespace WatchDog_V1
 
             string Pass1 = textBox2.Text;
             string Pass2 = textBox3.Text;
+            string Login = textBox1.Text;
+            string mail = textBox4.Text;
+            string phone = textBox5.Text;
+
+            string path = @"./Data/Data.txt";
+            string username = null;
 
 
-            int validConditions = 0;
-            foreach (char c in Pass1)
+            if (File.Exists(path))
             {
-                if (c >= 'a' && c <= 'z')
-                {
-                    validConditions++;
-                    
-                }
-            }
-            foreach (char c in Pass1)
-            {
-                if (c >= 'A' && c <= 'Z')
-                {
-                    validConditions++;
-                    
-                }
-            }
+                string[] lines = System.IO.File.ReadAllLines(@"./Data/Data.txt");
 
-            if (validConditions == 0)
-            {
-                MessageBox.Show("The password restrictions have not been followed"); 
-            }
-            foreach (char c in Pass1)
-            {
-                if (c >= '0' && c <= '9')
+                for (int i = 0; i < lines.Count(); i += 5)
                 {
-                    validConditions++;
-                   
-                }
-                if (validConditions == 1)
-                {
-                    MessageBox.Show("The password restrictions have not been followed");
-                   
-                }
-                if (validConditions == 2)
-                {
-                    if (Pass1 == Pass2)
+                    if( Login == lines[i])
                     {
-                        Form5 y = new Form5();
-                        y.Show();
-                        this.Hide();
-
+                        MessageBox.Show("Login already in use");
                     }
-
-                    else
-                    {
-                        MessageBox.Show("Fields not filled in correctly\n\tTry again...");
-                       
-                    }
-
                 }
                 
+
+                if (Pass1.Length >= 8 && Pass1.Any(char.IsUpper) && Pass1.Any(char.IsLower)) //pass req
+                {
+                    if (mail.Contains("@") && mail.Contains("."))
+                    {
+                        if(phone.Length >= 7)
+                        {
+                            if (Pass1 == Pass2) //pass1&2 need to be eaqual to go to form5
+                            {
+                                Form5 y = new Form5();
+                                y.Show();
+                                this.Hide();
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("The passwords do not match\n\tTry again...");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Enter a valid phone number");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("\tFill in the correct e-mail syntax \n\tsomething@domain.com");
+                    }
+                }
+                else
+                {
+                        MessageBox.Show("The password requirements have not been met");
+                }
+
             }
 
+            else
+            {
+                if (Pass1.Length >= 8 && Pass1.Any(char.IsUpper) && Pass1.Any(char.IsLower)) //pass req
+                {
+                    if (mail.Contains("@") && mail.Contains("."))
+                    {
+                        if (phone.Length >= 7)
+                        {
+                            if (Pass1 == Pass2) //pass1&2 need to be eaqual to go to form5
+                            {
+                                Form5 y = new Form5();
+                                y.Show();
+                                this.Hide();
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("The passwords do not match\n\tTry again...");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Enter a valid phone number");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("\tFill in the correct e-mail syntax \n\tsomething@domain.com");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("The password requirements have not been met");
+                }
+            }
 
         }
 
+
         private void button1_Click(object sender, EventArgs e)
-        {
-            string Pass1 = textBox2.Text;
-           
+        {  
                 conformation();
         }
 
@@ -105,9 +145,7 @@ namespace WatchDog_V1
             }
         }
 
-        private void Form4_Load(object sender, EventArgs e)
-        {
-
-        }
+       
+   
     }
 }

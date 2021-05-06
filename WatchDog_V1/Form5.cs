@@ -25,7 +25,7 @@ namespace WatchDog_V1
             label6.Text = Form4.R_email;
             label7.Text = Form4.R_Pass;
             label8.Text = Form4.R_Phone;
-            textBox1.Text = Form4.R_Pass;
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -53,10 +53,10 @@ namespace WatchDog_V1
             { 
                 using (StreamWriter sw = File.CreateText(path))
                 {
-                    sw.WriteLine("Login : " + Form4.R_Login);
-                    sw.WriteLine("Password : " + Form4.R_Pass);
-                    sw.WriteLine("E-Mail : " + Form4.R_email);
-                    sw.WriteLine("Phone : " + Form4.R_Phone);
+                    sw.WriteLine(Form4.R_Login);
+                    sw.WriteLine(Form4.R_Pass);
+                    sw.WriteLine(Form4.R_email);
+                    sw.WriteLine(Form4.R_Phone);
                     
                 }
             }
@@ -67,19 +67,36 @@ namespace WatchDog_V1
                 using (StreamWriter sw = File.AppendText(path))
                 {
 
-                    sw.WriteLine("\nLogin : " + Form4.R_Login);
-                    sw.WriteLine("Password : " + Form4.R_Pass);
-                    sw.WriteLine("E-Mail : " + Form4.R_email);
-                    sw.WriteLine("Phone : " + Form4.R_Phone);
+                    sw.WriteLine("\n" + Form4.R_Login);
+                    sw.WriteLine(Form4.R_Pass);
+                    sw.WriteLine(Form4.R_email);
+                    sw.WriteLine(Form4.R_Phone);
                 }
                 
             }
-           
-                
+
             
+
             Form1 login = new Form1();
             login.Show();
             this.Hide();
+
+            Form4.R_Login = null;
+            Form4.R_Pass = null;
+            Form4.R_email = null;
+            Form4.R_Phone = null;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if(label7.Visible == false)
+            {
+                label7.Visible = true;
+            }
+            else
+            {
+                label7.Visible = false;
+            }
         }
     }
 }
