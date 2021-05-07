@@ -111,10 +111,10 @@ namespace WatchDog_V1
             removeBackSlash();
             filePath = filePathTextBox.Text;
             loadFilesAndDirectories();
-            isFile = false;
+            isFile = false;             // when going inside a directory the selected item is not a file
         }
 
-        public void removeBackSlash()
+        public void removeBackSlash()   // removes if a backslash is at the end of path
         {
             string path = filePathTextBox.Text;
             if(path.LastIndexOf("/") == path.Length - 1)
@@ -143,14 +143,14 @@ namespace WatchDog_V1
         {
             loadButtonAction();
         }
-        private void listView1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        private void listView1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e) // this when clicking another item in the listview (ItemSelectionChanged)
         {
-            currentlySelectedItemName = e.Item.Text;
-            FileAttributes fileAttr = File.GetAttributes(filePath + "/" + currentlySelectedItemName);
+            currentlySelectedItemName = e.Item.Text; // gets the selected item name
+            FileAttributes fileAttr = File.GetAttributes(filePath + "/" + currentlySelectedItemName); // updates the fileAttr given the new path
             if ((fileAttr & FileAttributes.Directory) == FileAttributes.Directory)
             {
                 isFile = false;
-                filePathTextBox.Text = filePath + "/" + currentlySelectedItemName;
+                filePathTextBox.Text = filePath + "/" + currentlySelectedItemName;                  // updates the path if is a directory
             }
             else
                 isFile = true;
@@ -158,7 +158,7 @@ namespace WatchDog_V1
 
         private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            loadButtonAction();   // to the same as the go button
+            loadButtonAction();   // it will open a directory or a file this function calls loadFilesAndDirectories()
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -184,11 +184,12 @@ namespace WatchDog_V1
             goBack();
             loadButtonAction();
         }
-        // EVENT HANDLER AT RUN TIME //
-        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+
+        private void listView1_MouseClick(object sender, MouseEventArgs e)
         {
-            if (isFile)
-                MessageBox.Show("Testing Right Click");
+            if (e.Button == MouseButtons.Right && isFile)
+                MessageBox.Show("Code to show the contextMenuStrip"); // how to callback the context menu strip???
         }
+
     }
 }
