@@ -15,6 +15,7 @@ namespace WatchDog_V1
 {
     public partial class Form2 : Form
     {
+        private string userName = "donna\\camis"; // System.Security.Principal.WindowsIdentity.GetCurrent().Name;
         private string filePath = "C:\\Users";
         private bool isFile = false;
         private string currentlySelectedItemName = "";
@@ -188,8 +189,48 @@ namespace WatchDog_V1
         private void listView1_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right && isFile)
-                MessageBox.Show("Code to show the contextMenuStrip"); // how to callback the context menu strip???
+            {
+                contextMenuStrip1.Show(listView1, e.Location);
+            }
         }
 
+        /* ACL CONTROL CODE HERE */
+        private void lockFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string selectedFilePath = filePath + "/" + currentlySelectedItemName;
+            try
+            {
+                AddFileSecurity(selectedFilePath, userName, FileSystemRights.ReadData, AccessControlType.Deny);
+                //MessageBox.Show(currentlySelectedItemName);
+                //MessageBox.Show(selectedFilePath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something went wrong");
+            }
+        }
+
+        public static void AddFileSecurity(string fileName, string account, FileSystemRights rights, AccessControlType controlType)
+        {
+            // Get file security object
+            FileSecurity fSecurity = File.GetAccessControl(fileName);
+
+            // Add the FileSystemAccessRule to the security settings
+            fSecurity.AddAccessRule(new FileSystemAccessRule(account, rights, controlType));
+
+            // SettingsBindableAttribute the new access setings
+            File.SetAccessControl(fileName, fSecurity);
+        }
+        public static void RemoveFileSecurity(string fileName, string account, FileSystemRights rights, AccessControlType controlType)
+        {
+            // Get file security object
+            FileSecurity fSecurity = File.GetAccessControl(fileName);
+
+            // Remove the FileSystemAccessRule from security settings
+            fSecurity.RemoveAccessRule(new FileSystemAccessRule(account, rights, controlType));
+
+            // Set the new access settings
+            File.SetAccessControl(fileName, fSecurity);
+        }
     }
 }

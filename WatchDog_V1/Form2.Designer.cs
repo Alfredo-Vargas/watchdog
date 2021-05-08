@@ -174,18 +174,19 @@
             this.lockFileToolStripMenuItem,
             this.makeReadOnlyToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(170, 68);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(241, 101);
             // 
             // lockFileToolStripMenuItem
             // 
             this.lockFileToolStripMenuItem.Name = "lockFileToolStripMenuItem";
-            this.lockFileToolStripMenuItem.Size = new System.Drawing.Size(169, 32);
+            this.lockFileToolStripMenuItem.Size = new System.Drawing.Size(240, 32);
             this.lockFileToolStripMenuItem.Text = "Lock File";
+            this.lockFileToolStripMenuItem.Click += new System.EventHandler(this.lockFileToolStripMenuItem_Click);
             // 
             // makeReadOnlyToolStripMenuItem
             // 
             this.makeReadOnlyToolStripMenuItem.Name = "makeReadOnlyToolStripMenuItem";
-            this.makeReadOnlyToolStripMenuItem.Size = new System.Drawing.Size(169, 32);
+            this.makeReadOnlyToolStripMenuItem.Size = new System.Drawing.Size(240, 32);
             this.makeReadOnlyToolStripMenuItem.Text = "Unlock File";
             // 
             // filePathTextBox
