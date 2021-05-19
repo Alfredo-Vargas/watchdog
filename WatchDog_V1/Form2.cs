@@ -15,7 +15,7 @@ namespace WatchDog_V1
 {
     public partial class Form2 : Form
     {
-        private string userName = "donna\\camis"; // System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+        private string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
         private string filePath = "C:\\Users";
         private bool isFile = false;
         private string currentlySelectedItemName = "";
@@ -61,40 +61,46 @@ namespace WatchDog_V1
 
                     for (int i = 0; i < files.Length; i++)
                     {
-                        fileExtension = files[i].Extension.ToUpper();
-                        switch(fileExtension)  // index of the file icon 
+                        fileExtension = files[i].Extension.ToLower().Substring(1);
+                        //MessageBox.Show(fileExtension);
+                        if (iconList.Images.ContainsKey(fileExtension + ".ico"))
+                            listView1.Items.Add(files[i].Name, fileExtension + ".ico");
+                        else
+                            listView1.Items.Add(files[i].Name, 0);  // 0 is the index of blank file
+                        /*switch(fileExtension)  // index of the file icon 
                         {
-                            case ".MP3":
-                            case ".MP2":
+                            case ".mp3":
+                            case ".mp2":
                                 listView1.Items.Add(files[i].Name, 2);   
                                 break;
-                            case ".EXE":
-                            case ".COM":
+                            case ".exe":
+                            case ".com":
                                 listView1.Items.Add(files[i].Name, 3);   
                                 break;
-                            case ".MP4":
-                            case ".AVI":
-                            case ".MKV":
+                            case ".mp4":
+                            case ".avi":
+                            case ".mkv":
                                 listView1.Items.Add(files[i].Name, 4);   
                                 break;
-                            case ".PDF":
+                            case ".pdf":
                                 listView1.Items.Add(files[i].Name, 5);   
                                 break;
-                            case ".DOC":
-                            case ".DOCX":
+                            case ".doc":
+                            case ".docx":
                                 listView1.Items.Add(files[i].Name, 6);   
                                 break;
-                            case ".PNG":
-                            case ".JPG":
-                            case ".JPEG":
+                            case ".png":
+                            case ".jpg":
+                            case ".jpeg":
                                 break;
                             default:
                                 listView1.Items.Add(files[i].Name, 0);   
                                 break;
-                        }
+                        }*/
                     }
                     for (int i = 0; i < dirs.Length; i++)
-                        listView1.Items.Add(dirs[i].Name, 1);      // index of the folder is one
+                        if (iconList.Images.ContainsKey("folder.ico"))
+                            listView1.Items.Add(dirs[i].Name, "folder.ico");
                 }
                 else
                 {
@@ -201,15 +207,24 @@ namespace WatchDog_V1
             try
             {
                 AddFileSecurity(selectedFilePath, userName, FileSystemRights.ReadData, AccessControlType.Deny);
-                //MessageBox.Show(currentlySelectedItemName);
-                //MessageBox.Show(selectedFilePath);
             }
-            catch (Exception ex)
+            catch 
             {
-                MessageBox.Show("Something went wrong");
+                MessageBox.Show("Something went wrong when locking the file");
             }
         }
-
+        private void makeReadOnlyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string selectedFilePath = filePath + "/" + currentlySelectedItemName;
+            try
+            {
+                RemoveFileSecurity(selectedFilePath, userName, FileSystemRights.ReadData, AccessControlType.Deny);
+            }
+            catch
+            {
+                MessageBox.Show("Something went wrong when unlocking the file");
+            }
+        }
         public static void AddFileSecurity(string fileName, string account, FileSystemRights rights, AccessControlType controlType)
         {
             // Get file security object

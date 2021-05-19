@@ -158,8 +158,8 @@
             // 
             this.iconList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("iconList.ImageStream")));
             this.iconList.TransparentColor = System.Drawing.Color.Transparent;
-            this.iconList.Images.SetKeyName(0, "Basic-Document-Blank.ico");
-            this.iconList.Images.SetKeyName(1, "Folders-Windows-Folder.ico");
+            this.iconList.Images.SetKeyName(0, "blank.ico");
+            this.iconList.Images.SetKeyName(1, "folder.ico");
             this.iconList.Images.SetKeyName(2, "mp3.ico");
             this.iconList.Images.SetKeyName(3, "exe.ico");
             this.iconList.Images.SetKeyName(4, "mp4.ico");
@@ -174,20 +174,21 @@
             this.lockFileToolStripMenuItem,
             this.makeReadOnlyToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(241, 101);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(170, 68);
             // 
             // lockFileToolStripMenuItem
             // 
             this.lockFileToolStripMenuItem.Name = "lockFileToolStripMenuItem";
-            this.lockFileToolStripMenuItem.Size = new System.Drawing.Size(240, 32);
+            this.lockFileToolStripMenuItem.Size = new System.Drawing.Size(169, 32);
             this.lockFileToolStripMenuItem.Text = "Lock File";
             this.lockFileToolStripMenuItem.Click += new System.EventHandler(this.lockFileToolStripMenuItem_Click);
             // 
             // makeReadOnlyToolStripMenuItem
             // 
             this.makeReadOnlyToolStripMenuItem.Name = "makeReadOnlyToolStripMenuItem";
-            this.makeReadOnlyToolStripMenuItem.Size = new System.Drawing.Size(240, 32);
+            this.makeReadOnlyToolStripMenuItem.Size = new System.Drawing.Size(169, 32);
             this.makeReadOnlyToolStripMenuItem.Text = "Unlock File";
+            this.makeReadOnlyToolStripMenuItem.Click += new System.EventHandler(this.makeReadOnlyToolStripMenuItem_Click);
             // 
             // filePathTextBox
             // 
