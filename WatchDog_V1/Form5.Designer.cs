@@ -202,7 +202,7 @@ namespace WatchDog_V1
             this.button3.FlatAppearance.BorderSize = 2;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.Color.Lime;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.Image = global::WatchDog_V1.Properties.Resources.eye_icon;
             this.button3.Location = new System.Drawing.Point(358, 269);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(28, 28);

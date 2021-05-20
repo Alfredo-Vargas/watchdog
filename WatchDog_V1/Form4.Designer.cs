@@ -236,7 +236,7 @@ namespace WatchDog_V1
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(122, 13);
             this.label10.TabIndex = 24;
-            this.label10.Text = "Example: +324 1234567";
+            this.label10.Text = "Example: +32 41234567";
             // 
             // label11
             // 
@@ -276,6 +276,7 @@ namespace WatchDog_V1
             this.Name = "Form4";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "WatchDog";
+
             this.ResumeLayout(false);
             this.PerformLayout();
 

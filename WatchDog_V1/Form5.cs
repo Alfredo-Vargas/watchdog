@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.AccessControl;
 using System.Windows.Forms;
 
 namespace WatchDog_V1
@@ -39,8 +40,8 @@ namespace WatchDog_V1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
-            
+
+            string FileName = "Data.txt";
             string path = @"./Data/Data.txt";
             String dir = @"./Data";
 
@@ -75,7 +76,7 @@ namespace WatchDog_V1
                 
             }
 
-            
+            //AddEncryption(FileName);
 
             Form1 login = new Form1();
             login.Show();
@@ -97,6 +98,20 @@ namespace WatchDog_V1
             {
                 label7.Visible = false;
             }
+        } 
+        
+       /* public static void AddEncryption(string FileName)
+        {
+
+            File.Encrypt(FileName);
         }
-    }
+
+        // Decrypt a file.
+        public static void RemoveEncryption(string FileName)
+        {
+        File.Decrypt(FileName);
+        }*/
+    }   
+
+
 }

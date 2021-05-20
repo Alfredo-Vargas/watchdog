@@ -30,17 +30,29 @@ namespace WatchDog_V1
             string Login = LoginTxt.Text;
             string pass = PassTxt.Text;
 
-            if ((Login == Form4.R_Login && pass == Form4.R_Pass) || (Login == "" && pass == ""))
-            {
-                Form2 main = new Form2();
-                main.Show();
-                this.Hide();
+
+            string[] lines = System.IO.File.ReadAllLines(@"./Data/Data.txt");
+
+
+            //not working correctly can login with other password
+            Boolean loginMatch = false;
+
+            for (int i = 0; i < lines.Count(); i += 5)
+            {               
+                if (Login == lines[i] && pass == lines[i+1])
+                {
+                    loginMatch = true;
+                    Form2 main = new Form2();
+                    main.Show();
+                    this.Hide();
+                }
 
             }
-            else
-            {
-                MessageBox.Show("Password or Login incorrect try again");
 
+
+            if (loginMatch == false)
+            {
+                MessageBox.Show("Password or login incorrect try again");
             }
 
         }
@@ -69,5 +81,7 @@ namespace WatchDog_V1
             Registration.Show();
             this.Hide();
         }
+
+ 
     }
 }
