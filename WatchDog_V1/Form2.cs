@@ -15,6 +15,7 @@ namespace WatchDog_V1
 {
     public partial class Form2 : Form
     {
+        private string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
         private string filePath = "C:\\Users";
         private bool isFile = false;
         private string currentlySelectedItemName = "";
@@ -60,40 +61,46 @@ namespace WatchDog_V1
 
                     for (int i = 0; i < files.Length; i++)
                     {
-                        fileExtension = files[i].Extension.ToUpper();
-                        switch(fileExtension)  // index of the file icon 
+                        fileExtension = files[i].Extension.ToLower().Substring(1);
+                        //MessageBox.Show(fileExtension);
+                        if (iconList.Images.ContainsKey(fileExtension + ".ico"))
+                            listView1.Items.Add(files[i].Name, fileExtension + ".ico");
+                        else
+                            listView1.Items.Add(files[i].Name, 0);  // 0 is the index of blank file
+                        /*switch(fileExtension)  // index of the file icon 
                         {
-                            case ".MP3":
-                            case ".MP2":
+                            case ".mp3":
+                            case ".mp2":
                                 listView1.Items.Add(files[i].Name, 2);   
                                 break;
-                            case ".EXE":
-                            case ".COM":
+                            case ".exe":
+                            case ".com":
                                 listView1.Items.Add(files[i].Name, 3);   
                                 break;
-                            case ".MP4":
-                            case ".AVI":
-                            case ".MKV":
+                            case ".mp4":
+                            case ".avi":
+                            case ".mkv":
                                 listView1.Items.Add(files[i].Name, 4);   
                                 break;
-                            case ".PDF":
+                            case ".pdf":
                                 listView1.Items.Add(files[i].Name, 5);   
                                 break;
-                            case ".DOC":
-                            case ".DOCX":
+                            case ".doc":
+                            case ".docx":
                                 listView1.Items.Add(files[i].Name, 6);   
                                 break;
-                            case ".PNG":
-                            case ".JPG":
-                            case ".JPEG":
+                            case ".png":
+                            case ".jpg":
+                            case ".jpeg":
                                 break;
                             default:
                                 listView1.Items.Add(files[i].Name, 0);   
                                 break;
-                        }
+                        }*/
                     }
                     for (int i = 0; i < dirs.Length; i++)
-                        listView1.Items.Add(dirs[i].Name, 1);      // index of the folder is one
+                        if (iconList.Images.ContainsKey("folder.ico"))
+                            listView1.Items.Add(dirs[i].Name, "folder.ico");
                 }
                 else
                 {
@@ -111,10 +118,10 @@ namespace WatchDog_V1
             removeBackSlash();
             filePath = filePathTextBox.Text;
             loadFilesAndDirectories();
-            isFile = false;
+            isFile = false;             // when going inside a directory the selected item is not a file
         }
 
-        public void removeBackSlash()
+        public void removeBackSlash()   // removes if a backslash is at the end of path
         {
             string path = filePathTextBox.Text;
             if(path.LastIndexOf("/") == path.Length - 1)
@@ -143,14 +150,14 @@ namespace WatchDog_V1
         {
             loadButtonAction();
         }
-        private void listView1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        private void listView1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e) // this when clicking another item in the listview (ItemSelectionChanged)
         {
-            currentlySelectedItemName = e.Item.Text;
-            FileAttributes fileAttr = File.GetAttributes(filePath + "/" + currentlySelectedItemName);
+            currentlySelectedItemName = e.Item.Text; // gets the selected item name
+            FileAttributes fileAttr = File.GetAttributes(filePath + "/" + currentlySelectedItemName); // updates the fileAttr given the new path
             if ((fileAttr & FileAttributes.Directory) == FileAttributes.Directory)
             {
                 isFile = false;
-                filePathTextBox.Text = filePath + "/" + currentlySelectedItemName;
+                filePathTextBox.Text = filePath + "/" + currentlySelectedItemName;                  // updates the path if is a directory
             }
             else
                 isFile = true;
@@ -158,7 +165,7 @@ namespace WatchDog_V1
 
         private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            loadButtonAction();   // to the same as the go button
+            loadButtonAction();   // it will open a directory or a file this function calls loadFilesAndDirectories()
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -184,11 +191,61 @@ namespace WatchDog_V1
             goBack();
             loadButtonAction();
         }
-        // EVENT HANDLER AT RUN TIME //
-        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+
+        private void listView1_MouseClick(object sender, MouseEventArgs e)
         {
-            if (isFile)
-                MessageBox.Show("Testing Right Click");
+            if (e.Button == MouseButtons.Right && isFile)
+            {
+                contextMenuStrip1.Show(listView1, e.Location);
+            }
+        }
+
+        /* ACL CONTROL CODE HERE */
+        private void lockFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string selectedFilePath = filePath + "/" + currentlySelectedItemName;
+            try
+            {
+                AddFileSecurity(selectedFilePath, userName, FileSystemRights.ReadData, AccessControlType.Deny);
+            }
+            catch 
+            {
+                MessageBox.Show("Something went wrong when locking the file");
+            }
+        }
+        private void makeReadOnlyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string selectedFilePath = filePath + "/" + currentlySelectedItemName;
+            try
+            {
+                RemoveFileSecurity(selectedFilePath, userName, FileSystemRights.ReadData, AccessControlType.Deny);
+            }
+            catch
+            {
+                MessageBox.Show("Something went wrong when unlocking the file");
+            }
+        }
+        public static void AddFileSecurity(string fileName, string account, FileSystemRights rights, AccessControlType controlType)
+        {
+            // Get file security object
+            FileSecurity fSecurity = File.GetAccessControl(fileName);
+
+            // Add the FileSystemAccessRule to the security settings
+            fSecurity.AddAccessRule(new FileSystemAccessRule(account, rights, controlType));
+
+            // SettingsBindableAttribute the new access setings
+            File.SetAccessControl(fileName, fSecurity);
+        }
+        public static void RemoveFileSecurity(string fileName, string account, FileSystemRights rights, AccessControlType controlType)
+        {
+            // Get file security object
+            FileSecurity fSecurity = File.GetAccessControl(fileName);
+
+            // Remove the FileSystemAccessRule from security settings
+            fSecurity.RemoveAccessRule(new FileSystemAccessRule(account, rights, controlType));
+
+            // Set the new access settings
+            File.SetAccessControl(fileName, fSecurity);
         }
     }
 }
