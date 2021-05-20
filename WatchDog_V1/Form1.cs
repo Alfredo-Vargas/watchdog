@@ -34,8 +34,15 @@ namespace WatchDog_V1
             string[] lines = System.IO.File.ReadAllLines(@"./Data/Data.txt");
 
 
-            //not working correctly can login with other password
-            Boolean loginMatch = false;
+            if(Login =="" && pass =="")
+            {
+                Form2 main = new Form2();
+                main.Show();
+                this.Hide();
+
+            }
+
+          /*  Boolean loginMatch = false;
 
             for (int i = 0; i < lines.Count(); i += 5)
             {               
@@ -53,7 +60,7 @@ namespace WatchDog_V1
             if (loginMatch == false)
             {
                 MessageBox.Show("Password or login incorrect try again");
-            }
+            }*/
 
         }
 
@@ -82,6 +89,6 @@ namespace WatchDog_V1
             this.Hide();
         }
 
- 
+
     }
 }
