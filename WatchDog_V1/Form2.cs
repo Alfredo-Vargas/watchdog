@@ -18,7 +18,7 @@ namespace WatchDog_V1
     {
         public string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
         public string UserDomainName = Environment.UserDomainName;
-        private string filePath ="C:\\Users/alfre/Documents/MEGA";
+        private string filePath = "C:/Users/alfre/Documents/MEGAsync/thomas_more/studies 2020_2021/Practice Enterprise 6C"; // C:\\Users/alfre/Documents/MEGA";
         private bool isFile = false;
         private string currentlySelectedItemName = "";
         public Form2()
@@ -261,8 +261,9 @@ namespace WatchDog_V1
         private void BlockAllUsers()
         {
             string UserX;
+            string DomainX = "Domain=\'" + UserDomainName + "\'";
             string selectedFilePath = filePath + "/" + currentlySelectedItemName;
-            SelectQuery sQuery = new SelectQuery("Win32_UserAccount", "Domain='DONNA'");
+            SelectQuery sQuery = new SelectQuery("Win32_UserAccount", DomainX);
             try
             {
                 ManagementObjectSearcher mSearcher = new ManagementObjectSearcher(sQuery);
@@ -273,7 +274,6 @@ namespace WatchDog_V1
                     if (userName != UserX)
                     {
                         AddFileSecurity(selectedFilePath, UserX, FileSystemRights.ReadData, AccessControlType.Deny);
-                        //MessageBox.Show(UserX);
                     }
                 }
             }
@@ -286,8 +286,9 @@ namespace WatchDog_V1
         private void UnblockAllUsers()
         {
             string UserX;
+            string DomainX = "Domain=\'" + UserDomainName + "\'";
             string selectedFilePath = filePath + "/" + currentlySelectedItemName;
-            SelectQuery sQuery = new SelectQuery("Win32_UserAccount", "Domain='DONNA'");
+            SelectQuery sQuery = new SelectQuery("Win32_UserAccount", DomainX);
             try
             {
                 ManagementObjectSearcher mSearcher = new ManagementObjectSearcher(sQuery);
@@ -298,7 +299,6 @@ namespace WatchDog_V1
                     if (userName != UserX)
                     {
                         RemoveFileSecurity(selectedFilePath, UserX, FileSystemRights.ReadData, AccessControlType.Deny);
-                        //MessageBox.Show(UserX);
                     }
                 }
             }

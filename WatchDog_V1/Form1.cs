@@ -31,10 +31,10 @@ namespace WatchDog_V1
             string pass = PassTxt.Text;
 
 
-            string[] lines = System.IO.File.ReadAllLines(@"./Data/Data.txt");
+            //string[] lines = System.IO.File.ReadAllLines(@"./Data/Data.txt");
 
 
-            if(Login =="" && pass =="")
+            if(Login =="" && pass =="" || 0 == 0)
             {
                 Form2 main = new Form2();
                 main.Show();
