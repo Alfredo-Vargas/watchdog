@@ -19,6 +19,7 @@ namespace WatchDog_V1
     public partial class Form2 : Form
     {
         public string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+        public string userSID = System.Security.Principal.WindowsIdentity.GetCurrent().User.ToString();
         public string UserDomainName = Environment.UserDomainName;
         private string filePath = "C:/Users/alfre/Documents/MEGAsync/thomas_more/studies 2020_2021/Practice Enterprise 6C"; // C:\\Users/alfre/Documents/MEGA";
         private bool isFile = false;
@@ -318,12 +319,12 @@ namespace WatchDog_V1
         /* https://www.codeproject.com/Articles/26085/File-Encryption-and-Decryption-in-C */
         private void EncryptFile(string inputFile, string outputFile)
         {
+            string uName = userSID.Substring(userSID.Length - 8);
             try
             {
-                string password = @"myKey123";
+                string password = uName;  // key used to encrypt
                 UnicodeEncoding UE = new UnicodeEncoding();
                 byte[] key = UE.GetBytes(password);
-
                 string cryptFile = outputFile;
                 FileStream fsCrypt = new FileStream(cryptFile, FileMode.Create);  // open pointer to destination file
 
@@ -348,26 +349,35 @@ namespace WatchDog_V1
         }
         private void DecryptFile(string inputFile, string outputFile)
         {
-            string password = @"myKey123";
+            string uName = userSID.Substring(userSID.Length - 8);
+            try
+            {
+                string password = uName;  // key used to decrypt 
 
-            UnicodeEncoding UE = new UnicodeEncoding();
-            byte[] key = UE.GetBytes(password);
+                UnicodeEncoding UE = new UnicodeEncoding();
+                byte[] key = UE.GetBytes(password);
 
-            FileStream fsCrypt = new FileStream(inputFile, FileMode.Open);
+                FileStream fsCrypt = new FileStream(inputFile, FileMode.Open);
 
-            RijndaelManaged RMCrypto = new RijndaelManaged();
+                RijndaelManaged RMCrypto = new RijndaelManaged();
 
-            CryptoStream cs = new CryptoStream(fsCrypt, RMCrypto.CreateDecryptor(key, key), CryptoStreamMode.Read);
+                CryptoStream cs = new CryptoStream(fsCrypt, RMCrypto.CreateDecryptor(key, key), CryptoStreamMode.Read);
 
-            FileStream fsOut = new FileStream(outputFile, FileMode.Create);
+                FileStream fsOut = new FileStream(outputFile, FileMode.Create);
 
-            int data;
-            while ((data = cs.ReadByte()) != -1)
-                fsOut.WriteByte((byte)data);
+                int data;
+                while ((data = cs.ReadByte()) != -1)
+                    fsOut.WriteByte((byte)data);
 
-            fsOut.Close();
-            cs.Close();
-            fsCrypt.Close();
+                fsOut.Close();
+                cs.Close();
+                fsCrypt.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Decryption failed!");
+            }
+
         }
 
         private void encryptFileToolStripMenuItem_Click(object sender, EventArgs e)
