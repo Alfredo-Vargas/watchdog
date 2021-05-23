@@ -11,6 +11,8 @@ using System.Security.AccessControl; // to get access ACL options
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Management;            // to get the UserDomainName
+using System.Security;
+using System.Security.Cryptography; // to use RijndaelManaged RMCrypto
 
 namespace WatchDog_V1
 {
@@ -209,6 +211,8 @@ namespace WatchDog_V1
         }
 
         /* ACL CONTROL CODE HERE */
+        /* some guidelines */
+        /* https://docs.microsoft.com/en-us/dotnet/api/system.io.file.setaccesscontrol?view=netframework-4.8 */
         private void lockFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string selectedFilePath = filePath + "/" + currentlySelectedItemName;
@@ -307,6 +311,77 @@ namespace WatchDog_V1
                 MessageBox.Show(ex.ToString());
             }
             //Console.ReadKey();
+        }
+
+        /* ENCRYPTION CODE HERE */
+        /* MAIN CODE IDEA IN THE FOLLOWING URL*/
+        /* https://www.codeproject.com/Articles/26085/File-Encryption-and-Decryption-in-C */
+        private void EncryptFile(string inputFile, string outputFile)
+        {
+            try
+            {
+                string password = @"myKey123";
+                UnicodeEncoding UE = new UnicodeEncoding();
+                byte[] key = UE.GetBytes(password);
+
+                string cryptFile = outputFile;
+                FileStream fsCrypt = new FileStream(cryptFile, FileMode.Create);  // open pointer to destination file
+
+                RijndaelManaged RMCrypto = new RijndaelManaged();
+
+                CryptoStream cs = new CryptoStream(fsCrypt, RMCrypto.CreateEncryptor(key, key), CryptoStreamMode.Write); // pointer to crypto stream MEMORY ALLOCATION
+
+                FileStream fsIn = new FileStream(inputFile, FileMode.Open);     // open pointer to source file
+
+                int data;
+                while ((data = fsIn.ReadByte()) != -1)
+                    cs.WriteByte((byte)data);
+
+                fsIn.Close();  // file pointer is closed (source file)
+                cs.Close(); // pointer to the encryption stream is closed
+                fsCrypt.Close(); // file pointer is closed (destination file)
+            }
+            catch
+            {
+                MessageBox.Show("Encryption failed!", "Error");
+            }
+        }
+        private void DecryptFile(string inputFile, string outputFile)
+        {
+            string password = @"myKey123";
+
+            UnicodeEncoding UE = new UnicodeEncoding();
+            byte[] key = UE.GetBytes(password);
+
+            FileStream fsCrypt = new FileStream(inputFile, FileMode.Open);
+
+            RijndaelManaged RMCrypto = new RijndaelManaged();
+
+            CryptoStream cs = new CryptoStream(fsCrypt, RMCrypto.CreateDecryptor(key, key), CryptoStreamMode.Read);
+
+            FileStream fsOut = new FileStream(outputFile, FileMode.Create);
+
+            int data;
+            while ((data = cs.ReadByte()) != -1)
+                fsOut.WriteByte((byte)data);
+
+            fsOut.Close();
+            cs.Close();
+            fsCrypt.Close();
+        }
+
+        private void encryptFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string selectedFilePath = filePath + "/" + currentlySelectedItemName;
+            string destinationFilePath = filePath + "/" + "encrypted_" + currentlySelectedItemName;
+            EncryptFile(selectedFilePath, destinationFilePath);
+        }
+
+        private void decryptFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string selectedFilePath = filePath + "/" + currentlySelectedItemName;
+            string destinationFilePath = filePath + "/" + "decrypted_" + currentlySelectedItemName;
+            DecryptFile(selectedFilePath, destinationFilePath);
         }
     }
 }
