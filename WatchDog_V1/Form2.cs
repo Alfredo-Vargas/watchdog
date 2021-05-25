@@ -10,13 +10,18 @@ using System.IO;                     // to deal file/folder attributes
 using System.Security.AccessControl; // to get access ACL options
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Management;            // to get the UserDomainName
+using System.Security;
+using System.Security.Cryptography; // to use RijndaelManaged RMCrypto
 
 namespace WatchDog_V1
 {
     public partial class Form2 : Form
     {
-        private string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
-        private string filePath = "C:\\Users";
+        public string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+        public string userSID = System.Security.Principal.WindowsIdentity.GetCurrent().User.ToString();
+        public string UserDomainName = Environment.UserDomainName;
+        private string filePath = "C:/Users/alfre/Documents/MEGAsync/thomas_more/studies 2020_2021/Practice Enterprise 6C"; // C:\\Users/alfre/Documents/MEGA";
         private bool isFile = false;
         private string currentlySelectedItemName = "";
         public Form2()
@@ -62,12 +67,16 @@ namespace WatchDog_V1
                     for (int i = 0; i < files.Length; i++)
                     {
                         fileExtension = files[i].Extension.ToLower().Substring(1);
-                        //MessageBox.Show(fileExtension);
                         if (iconList.Images.ContainsKey(fileExtension + ".ico"))
+                        {
                             listView1.Items.Add(files[i].Name, fileExtension + ".ico");
+                        }
                         else
-                            listView1.Items.Add(files[i].Name, 0);  // 0 is the index of blank file
-                        /*switch(fileExtension)  // index of the file icon 
+                        {
+                            listView1.Items.Add(files[i].Name, "blank.ico");
+                        }
+                        /*
+                        switch(fileExtension)  // index of the file icon 
                         {
                             case ".mp3":
                             case ".mp2":
@@ -99,8 +108,10 @@ namespace WatchDog_V1
                         }*/
                     }
                     for (int i = 0; i < dirs.Length; i++)
-                        if (iconList.Images.ContainsKey("folder.ico"))
-                            listView1.Items.Add(dirs[i].Name, "folder.ico");
+                    {
+                        //if (iconList.Images.ContainsKey("folder.ico"))
+                        listView1.Items.Add(dirs[i].Name, "folder.ico");
+                    }
                 }
                 else
                 {
@@ -201,12 +212,15 @@ namespace WatchDog_V1
         }
 
         /* ACL CONTROL CODE HERE */
+        /* some guidelines */
+        /* https://docs.microsoft.com/en-us/dotnet/api/system.io.file.setaccesscontrol?view=netframework-4.8 */
         private void lockFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string selectedFilePath = filePath + "/" + currentlySelectedItemName;
             try
             {
-                AddFileSecurity(selectedFilePath, userName, FileSystemRights.ReadData, AccessControlType.Deny);
+                BlockAllUsers();
+                //AddFileSecurity(selectedFilePath, userName, FileSystemRights.ReadData, AccessControlType.Deny);
             }
             catch 
             {
@@ -218,7 +232,8 @@ namespace WatchDog_V1
             string selectedFilePath = filePath + "/" + currentlySelectedItemName;
             try
             {
-                RemoveFileSecurity(selectedFilePath, userName, FileSystemRights.ReadData, AccessControlType.Deny);
+                UnblockAllUsers();
+                //RemoveFileSecurity(selectedFilePath, userName, FileSystemRights.ReadData, AccessControlType.Deny);
             }
             catch
             {
@@ -246,6 +261,137 @@ namespace WatchDog_V1
 
             // Set the new access settings
             File.SetAccessControl(fileName, fSecurity);
+        }
+
+        private void BlockAllUsers()
+        {
+            string UserX;
+            string DomainX = "Domain=\'" + UserDomainName + "\'";
+            string selectedFilePath = filePath + "/" + currentlySelectedItemName;
+            SelectQuery sQuery = new SelectQuery("Win32_UserAccount", DomainX);
+            try
+            {
+                ManagementObjectSearcher mSearcher = new ManagementObjectSearcher(sQuery);
+                
+                foreach (ManagementObject mObject in mSearcher.Get())
+                {
+                    UserX = mObject["Domain"].ToString() + "\\" + mObject["Name"].ToString();
+                    if (userName != UserX)
+                    {
+                        AddFileSecurity(selectedFilePath, UserX, FileSystemRights.ReadData, AccessControlType.Deny);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            //Console.ReadKey();
+        }
+        private void UnblockAllUsers()
+        {
+            string UserX;
+            string DomainX = "Domain=\'" + UserDomainName + "\'";
+            string selectedFilePath = filePath + "/" + currentlySelectedItemName;
+            SelectQuery sQuery = new SelectQuery("Win32_UserAccount", DomainX);
+            try
+            {
+                ManagementObjectSearcher mSearcher = new ManagementObjectSearcher(sQuery);
+                
+                foreach (ManagementObject mObject in mSearcher.Get())
+                {
+                    UserX = mObject["Domain"].ToString() + "\\" + mObject["Name"].ToString();
+                    if (userName != UserX)
+                    {
+                        RemoveFileSecurity(selectedFilePath, UserX, FileSystemRights.ReadData, AccessControlType.Deny);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            //Console.ReadKey();
+        }
+
+        /* ENCRYPTION CODE HERE */
+        /* MAIN CODE IDEA IN THE FOLLOWING URL*/
+        /* https://www.codeproject.com/Articles/26085/File-Encryption-and-Decryption-in-C */
+        private void EncryptFile(string inputFile, string outputFile)
+        {
+            string uName = userSID.Substring(userSID.Length - 8);
+            try
+            {
+                string password = uName;  // key used to encrypt
+                UnicodeEncoding UE = new UnicodeEncoding();
+                byte[] key = UE.GetBytes(password);
+                string cryptFile = outputFile;
+                FileStream fsCrypt = new FileStream(cryptFile, FileMode.Create);  // open pointer to destination file
+
+                RijndaelManaged RMCrypto = new RijndaelManaged();
+
+                CryptoStream cs = new CryptoStream(fsCrypt, RMCrypto.CreateEncryptor(key, key), CryptoStreamMode.Write); // pointer to crypto stream MEMORY ALLOCATION
+
+                FileStream fsIn = new FileStream(inputFile, FileMode.Open);     // open pointer to source file
+
+                int data;
+                while ((data = fsIn.ReadByte()) != -1)
+                    cs.WriteByte((byte)data);
+
+                fsIn.Close();  // file pointer is closed (source file)
+                cs.Close(); // pointer to the encryption stream is closed
+                fsCrypt.Close(); // file pointer is closed (destination file)
+            }
+            catch
+            {
+                MessageBox.Show("Encryption failed!", "Error");
+            }
+        }
+        private void DecryptFile(string inputFile, string outputFile)
+        {
+            string uName = userSID.Substring(userSID.Length - 8);
+            try
+            {
+                string password = uName;  // key used to decrypt 
+
+                UnicodeEncoding UE = new UnicodeEncoding();
+                byte[] key = UE.GetBytes(password);
+
+                FileStream fsCrypt = new FileStream(inputFile, FileMode.Open);
+
+                RijndaelManaged RMCrypto = new RijndaelManaged();
+
+                CryptoStream cs = new CryptoStream(fsCrypt, RMCrypto.CreateDecryptor(key, key), CryptoStreamMode.Read);
+
+                FileStream fsOut = new FileStream(outputFile, FileMode.Create);
+
+                int data;
+                while ((data = cs.ReadByte()) != -1)
+                    fsOut.WriteByte((byte)data);
+
+                fsOut.Close();
+                cs.Close();
+                fsCrypt.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Decryption failed!");
+            }
+
+        }
+
+        private void encryptFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string selectedFilePath = filePath + "/" + currentlySelectedItemName;
+            string destinationFilePath = filePath + "/" + "encrypted_" + currentlySelectedItemName;
+            EncryptFile(selectedFilePath, destinationFilePath);
+        }
+
+        private void decryptFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string selectedFilePath = filePath + "/" + currentlySelectedItemName;
+            string destinationFilePath = filePath + "/" + "decrypted_" + currentlySelectedItemName;
+            DecryptFile(selectedFilePath, destinationFilePath);
         }
     }
 }
