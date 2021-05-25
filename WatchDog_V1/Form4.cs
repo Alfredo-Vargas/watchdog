@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EncryptEncDec;
 
 namespace WatchDog_V1
 {
@@ -24,7 +25,6 @@ namespace WatchDog_V1
             textBox2.MaxLength = 16;
             textBox3.MaxLength = 16;
             textBox5.MaxLength = 15;
-            
         }
 
 
@@ -41,19 +41,19 @@ namespace WatchDog_V1
             string mail = textBox4.Text;
             string phone = textBox5.Text;
 
-            string path = @"./Data/Data.txt";
-            string username = null;
-
+            string path = @"./Data/Data.BIN";
+            string username = Encryption.Encrypt(Login);
+           
 
             if (File.Exists(path))
             {
-                string[] lines = System.IO.File.ReadAllLines(@"./Data/Data.txt");
+                string[] lines = System.IO.File.ReadAllLines(@"./Data/Data.BIN");
 
                 Boolean exits = false;
 
                 for (int i = 0; i < lines.Count(); i += 5)
                 {
-                    if (Login == lines[i])
+                    if (username == lines[i])
                     {
                         exits = true;
                         break;
@@ -157,6 +157,6 @@ namespace WatchDog_V1
             }
         }
 
-
+ 
     }
 }

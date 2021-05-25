@@ -10,9 +10,11 @@ namespace WatchDog_V1
             InitializeComponent();
         }
 
-        private void Form3_Load(object sender, EventArgs e)
+        private void Form6_Load(object sender, EventArgs e)
         {
 
         }
+
+
     }
 }

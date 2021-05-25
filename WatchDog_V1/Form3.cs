@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace WatchDog_V1
 {
@@ -38,6 +39,17 @@ namespace WatchDog_V1
         {
             linkLabel1.LinkVisited = true;
             System.Diagnostics.Process.Start("https://github.com/Alfredo-Vargas/watchdog");
+
+            string Pathlog = "Log\\" +  Form1.A_Login + "\\Log.txt";
+            string time = DateTime.Now.ToString("dd/M/yyyy-HH:mm:ss");
+
+            using (StreamWriter sw = File.AppendText(Pathlog))
+            {
+                sw.WriteLine(time + "\t Visited link : https://github.com/Alfredo-Vargas/watchdog " + Form1.A_Login + "\n");
+                sw.Close();
+            }
         }
+
+ 
     }
 }

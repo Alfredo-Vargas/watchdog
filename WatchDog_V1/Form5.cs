@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using EncryptEncDec;
+
 
 
 namespace WatchDog_V1
@@ -42,7 +44,7 @@ namespace WatchDog_V1
         private void button2_Click(object sender, EventArgs e)
         {
 
-            string path = @"./Data/Data.txt";
+            string path = @"./Data/Data.BIN";
             String dir = @"./Data";
 
             if(!Directory.Exists(dir))
@@ -54,10 +56,15 @@ namespace WatchDog_V1
             { 
                 using (StreamWriter sw = File.CreateText(path))
                 {
-                    sw.WriteLine(Form4.R_Login);
-                    sw.WriteLine(Form4.R_Pass);
-                    sw.WriteLine(Form4.R_email);
-                    sw.WriteLine(Form4.R_Phone);
+                    string encryUsr = Encryption.Encrypt(Form4.R_Login);
+                    string encryPass = Encryption.Encrypt(Form4.R_Pass);
+                    string encryemail = Encryption.Encrypt(Form4.R_email);
+                    string encryPhone = Encryption.Encrypt(Form4.R_Phone);
+
+                    sw.WriteLine(encryUsr);
+                    sw.WriteLine(encryPass);
+                    sw.WriteLine(encryemail);
+                    sw.WriteLine(encryPhone);
                     sw.Close();
                 }
             }
@@ -68,17 +75,52 @@ namespace WatchDog_V1
                 using (StreamWriter sw = File.AppendText(path))
                 {
 
-                    sw.WriteLine("\n" + Form4.R_Login);
-                    sw.WriteLine(Form4.R_Pass);
-                    sw.WriteLine(Form4.R_email);
-                    sw.WriteLine(Form4.R_Phone);
+
+                    string encryUsr = Encryption.Encrypt(Form4.R_Login);
+                    string encryPass = Encryption.Encrypt(Form4.R_Pass);
+                    string encryemail = Encryption.Encrypt(Form4.R_email);
+                    string encryPhone = Encryption.Encrypt(Form4.R_Phone);
+
+                    sw.WriteLine("\n" + encryUsr);
+                    sw.WriteLine(encryPass);
+                    sw.WriteLine(encryemail);
+                    sw.WriteLine(encryPhone);
                     sw.Close();
                 }
                 
                 
             }
 
-            
+            string Pathsec = "Log\\" + Form4.R_Login + "\\Securtylog.txt";
+            string Pathlog = "Log\\" + Form4.R_Login + "\\Log.txt";
+            string Dirlog = "Log\\" + Form4.R_Login;
+            string time = DateTime.Now.ToString("dd/M/yyyy-HH:mm:ss");
+
+            if (!Directory.Exists(Dirlog))
+            {
+                Directory.CreateDirectory(Dirlog);
+            }
+
+            if (!File.Exists(Pathsec)) //only for login /logout and locked file/ unlocked file
+            {
+                using (StreamWriter sw = File.CreateText(Pathsec))
+                {
+                    sw.WriteLine(time + "\tNew User Created : " +Form4.R_Login +"\n");
+                    sw.Close();
+                }
+            }
+
+            if (!File.Exists(Pathlog)) //for every action taken 
+            {
+                using (StreamWriter sw = File.CreateText(Pathlog))
+                {
+                    sw.WriteLine(time + "\tNew User Created : " + Form4.R_Login + "\n");
+                    sw.Close();
+                }
+            }
+
+
+
 
             Form1 login = new Form1();
             login.Show();
@@ -89,6 +131,8 @@ namespace WatchDog_V1
             Form4.R_email = null;
             Form4.R_Phone = null;
         }
+
+
 
         private void button3_Click(object sender, EventArgs e)
         {
