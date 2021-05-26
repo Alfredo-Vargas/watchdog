@@ -21,7 +21,7 @@ namespace WatchDog_V1
         public string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
         public string userSID = System.Security.Principal.WindowsIdentity.GetCurrent().User.ToString();
         public string UserDomainName = Environment.UserDomainName;
-        private string filePath = "C:/Users/alfre/Documents/MEGAsync/thomas_more/studies 2020_2021/Practice Enterprise 6C"; // C:\\Users/alfre/Documents/MEGA";
+        private string filePath = "C:/Users/"; // C:\\Users/alfre/Documents/MEGA";
         private bool isFile = false;
         private string currentlySelectedItemName = "";
         public Form2()
@@ -181,20 +181,60 @@ namespace WatchDog_V1
 
         private void button6_Click(object sender, EventArgs e)
         {
+
+            string Pathlog = "Log\\" + Form1.A_Login + "\\Log.txt";
+            string time = DateTime.Now.ToString("dd/M/yyyy-HH:mm:ss");
+
+            using (StreamWriter sw = File.AppendText(Pathlog))
+            {
+                sw.WriteLine(time + "\tOpen EventLog : \t" + Form1.A_Login + "\n");
+                sw.Close();
+            }
+
             Form6 Event = new Form6();
             Event.Show();
-            this.Hide();
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+
+            string Pathlog = "Log\\" + Form1.A_Login + "\\Log.txt";
+            string time = DateTime.Now.ToString("dd/M/yyyy-HH:mm:ss");
+
+            using (StreamWriter sw = File.AppendText(Pathlog))
+            {
+                sw.WriteLine(time + "\tOpen WatchDog : \t" + Form1.A_Login + "\n");
+                sw.Close();
+            }
+
             Form3 main = new Form3();
             main.Show();
         }
 
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
         {
-            System.Windows.Forms.Application.Exit();
+            
+            string Pathsec = "Log\\" + Form1.A_Login + "\\Securtylog.txt";
+            string Pathlog = "Log\\" + Form1.A_Login + "\\Log.txt";
+            string time = DateTime.Now.ToString("dd/M/yyyy-HH:mm:ss");
+
+            using (StreamWriter sw = File.AppendText(Pathlog))
+            {
+                sw.WriteLine(time + "\tUser Logout : \t" + Form1.A_Login + "\n");
+                sw.Close();
+            }
+
+            using (StreamWriter sw = File.AppendText(Pathsec))
+            {
+                sw.WriteLine(time + "\tUser Logout : \t" + Form1.A_Login + "\n");
+                sw.Close();
+            }
+
+
+
+            System.Windows.Forms.Application.ExitThread();
+
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -221,6 +261,16 @@ namespace WatchDog_V1
             {
                 BlockAllUsers();
                 //AddFileSecurity(selectedFilePath, userName, FileSystemRights.ReadData, AccessControlType.Deny);
+
+                string Pathsec = "Log\\" + Form1.A_Login + "\\Securtylog.txt";
+                string time = DateTime.Now.ToString("dd/M/yyyy-HH:mm:ss");
+
+
+                using (StreamWriter sw = File.AppendText(Pathsec))
+                {
+                    sw.WriteLine(time + "\tLocked File: \t"+ currentlySelectedItemName + "\n");
+                    sw.Close();
+                }
             }
             catch 
             {
@@ -234,6 +284,16 @@ namespace WatchDog_V1
             {
                 UnblockAllUsers();
                 //RemoveFileSecurity(selectedFilePath, userName, FileSystemRights.ReadData, AccessControlType.Deny);
+
+                string Pathsec = "Log\\" + Form1.A_Login + "\\Securtylog.txt";
+                string time = DateTime.Now.ToString("dd/M/yyyy-HH:mm:ss");
+
+
+                using (StreamWriter sw = File.AppendText(Pathsec))
+                {
+                    sw.WriteLine(time + "\tUnlocked File: \t" + currentlySelectedItemName + "\n");
+                    sw.Close();
+                }
             }
             catch
             {
@@ -385,6 +445,16 @@ namespace WatchDog_V1
             string selectedFilePath = filePath + "/" + currentlySelectedItemName;
             string destinationFilePath = filePath + "/" + "encrypted_" + currentlySelectedItemName;
             EncryptFile(selectedFilePath, destinationFilePath);
+
+
+            string Pathsec = "Log\\" + Form1.A_Login + "\\Securtylog.txt";
+            string time = DateTime.Now.ToString("dd/M/yyyy-HH:mm:ss");
+
+            using (StreamWriter sw = File.AppendText(Pathsec))
+            {
+                sw.WriteLine(time + "\tEncypted File: \t" + currentlySelectedItemName + "\n");
+                sw.Close();
+            }
         }
 
         private void decryptFileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -392,6 +462,35 @@ namespace WatchDog_V1
             string selectedFilePath = filePath + "/" + currentlySelectedItemName;
             string destinationFilePath = filePath + "/" + "decrypted_" + currentlySelectedItemName;
             DecryptFile(selectedFilePath, destinationFilePath);
+
+            string Pathsec = "Log\\" + Form1.A_Login + "\\Securtylog.txt";
+            string time = DateTime.Now.ToString("dd/M/yyyy-HH:mm:ss");
+
+            using (StreamWriter sw = File.AppendText(Pathsec))
+            {
+                sw.WriteLine(time + "\tDecypted File: \t" + currentlySelectedItemName + "\n");
+                sw.Close();
+            }
+        }
+
+        private void securityButton_Click(object sender, EventArgs e)
+        {
+
+            string Pathlog = "Log\\" + Form1.A_Login + "\\Log.txt";
+            string time = DateTime.Now.ToString("dd/M/yyyy-HH:mm:ss");
+
+            using (StreamWriter sw = File.AppendText(Pathlog))
+            {
+                sw.WriteLine(time + "\tOpen SecurityLog : \t" + Form1.A_Login + "\n");
+                sw.Close();
+            }
+
+
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            loadFilesAndDirectories();
         }
     }
 }

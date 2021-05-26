@@ -105,7 +105,7 @@ namespace WatchDog_V1
             {
                 using (StreamWriter sw = File.CreateText(Pathsec))
                 {
-                    sw.WriteLine(time + "\tNew User Created : " +Form4.R_Login +"\n");
+                    sw.WriteLine(time + "\tUser Created : \t" +Form4.R_Login +"\n");
                     sw.Close();
                 }
             }
@@ -114,7 +114,7 @@ namespace WatchDog_V1
             {
                 using (StreamWriter sw = File.CreateText(Pathlog))
                 {
-                    sw.WriteLine(time + "\tNew User Created : " + Form4.R_Login + "\n");
+                    sw.WriteLine(time + "\tUser Created : \t" + Form4.R_Login + "\n");
                     sw.Close();
                 }
             }

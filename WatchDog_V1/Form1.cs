@@ -29,68 +29,69 @@ namespace WatchDog_V1
         {
             string Login = LoginTxt.Text;
             string pass = PassTxt.Text;
+            string path = @"./Data/Data.BIN";
+            String dir = @"./Data";
 
-            string[] lines = System.IO.File.ReadAllLines(@"./Data/Data.BIN");
-
-            
-            Boolean loginMatch = false;
-            // string line = null;
-
-            string Pathsec = "Log\\" + Login + "\\Securtylog.txt";
-            string Pathlog = "Log\\" + Login + "\\Log.txt";
-            string time = DateTime.Now.ToString("dd/M/yyyy-HH:mm:ss");
-            var sr = new StreamReader(@"./Data/Data.BIN");
-
-            
-
-            for (int i = 0; i < lines.Count(); i += 5)
-             {
-                 string encryUsr = Encryption.Encrypt(Login);
-                 string enctyPass = Encryption.Encrypt(pass);
-
-                  /*string encusr = sr.ReadLine();
-                  string encpass = sr.ReadLine();
-                  sr.Close();
-                  string decusr = Encryption.Decrypt(encusr);
-                  string decpass = Encryption.Decrypt(encpass);*/
-
-                 if (encryUsr == lines[i] && enctyPass == lines[i + 1])
-                 {
-                    loginMatch = true;
-                    using (StreamWriter sw = File.AppendText(Pathlog))
-                    {
-                        sw.WriteLine(time + "\t User Login : " + Login + "\n");
-                        sw.Close();
-                    }
-
-                    using (StreamWriter sw = File.AppendText(Pathsec))
-                    {
-                        sw.WriteLine(time + "\t User Login : " + Login + "\n");
-                        sw.Close();
-                    }
-
-                    A_Login = LoginTxt.Text;
-                    Form2 main = new Form2();
-                    main.Show();
-                    this.Hide();
-                          
-                 }
-
-             }
-               
-            if (loginMatch == false)
+            if (!Directory.Exists(dir))
             {
-                MessageBox.Show("Password or login incorrect try again\n"+attempts+"out of 3");
+                MessageBox.Show("Password or login incorrect try again\n" + attempts + "out of 3");
                 attempts = attempts + 1;
             }
+            else
+            {
 
-            if(attempts == 4)
+                string[] lines = System.IO.File.ReadAllLines(@"./Data/Data.BIN");
+
+                Boolean loginMatch = false;
+
+                string Pathsec = "Log\\" + Login + "\\Securtylog.txt";
+                string Pathlog = "Log\\" + Login + "\\Log.txt";
+                string time = DateTime.Now.ToString("dd/M/yyyy-HH:mm:ss");
+
+                var sr = new StreamReader(@"./Data/Data.BIN");
+
+                for (int i = 0; i < lines.Count(); i += 5)
+                {
+                    string encryUsr = Encryption.Encrypt(Login);
+                    string enctyPass = Encryption.Encrypt(pass);
+
+
+                    if (encryUsr == lines[i] && enctyPass == lines[i + 1])
+                    {
+                        loginMatch = true;
+                        using (StreamWriter sw = File.AppendText(Pathlog))
+                        {
+                            sw.WriteLine(time + "\tUser Login : \t" + Login + "\n");
+                            sw.Close();
+                        }
+
+                        using (StreamWriter sw = File.AppendText(Pathsec))
+                        {
+                            sw.WriteLine(time + "\tUser Login : \t" + Login + "\n");
+                            sw.Close();
+                        }
+
+                        A_Login = LoginTxt.Text;
+                        Form2 main = new Form2();
+                        main.Show();
+                        this.Hide();
+
+                    }
+
+                }
+
+                if (loginMatch == false)
+                {
+                    MessageBox.Show("Password or login incorrect try again\n" + attempts + "out of 3");
+                    attempts = attempts + 1;
+                }
+            }
+
+            if (attempts == 4)
             {
                 MessageBox.Show("Maximum login attepts reached the program will close");
                 System.Windows.Forms.Application.Exit();
             }
-
-                
         }
              
 
@@ -121,6 +122,7 @@ namespace WatchDog_V1
             Registration.Show();
             this.Hide();
         }
+
 
     }
 }

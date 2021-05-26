@@ -41,14 +41,14 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.lockFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.makeReadOnlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.encryptFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.decryptFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.filePathTextBox = new System.Windows.Forms.TextBox();
             this.fileName = new System.Windows.Forms.Label();
             this.fileType = new System.Windows.Forms.Label();
             this.fileTypeLabel = new System.Windows.Forms.Label();
             this.fileNameLabel = new System.Windows.Forms.Label();
             this.makeExecuteOnlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.encryptFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.decryptFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,11 +61,12 @@
             this.addButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.addButton.Location = new System.Drawing.Point(30, 16);
             this.addButton.Name = "addButton";
-            this.addButton.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.addButton.Padding = new System.Windows.Forms.Padding(3);
             this.addButton.Size = new System.Drawing.Size(140, 60);
             this.addButton.TabIndex = 4;
             this.addButton.Text = "ADD";
             this.addButton.UseVisualStyleBackColor = false;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // watchDogButton
             // 
@@ -76,7 +77,7 @@
             this.watchDogButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.watchDogButton.Location = new System.Drawing.Point(593, 16);
             this.watchDogButton.Name = "watchDogButton";
-            this.watchDogButton.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.watchDogButton.Padding = new System.Windows.Forms.Padding(3);
             this.watchDogButton.Size = new System.Drawing.Size(140, 60);
             this.watchDogButton.TabIndex = 4;
             this.watchDogButton.Text = "WATCHDOG";
@@ -92,11 +93,12 @@
             this.securityButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.securityButton.Location = new System.Drawing.Point(406, 16);
             this.securityButton.Name = "securityButton";
-            this.securityButton.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.securityButton.Padding = new System.Windows.Forms.Padding(3);
             this.securityButton.Size = new System.Drawing.Size(140, 60);
             this.securityButton.TabIndex = 4;
             this.securityButton.Text = "SECURITY";
             this.securityButton.UseVisualStyleBackColor = false;
+            this.securityButton.Click += new System.EventHandler(this.securityButton_Click);
             // 
             // eventLogButton
             // 
@@ -107,7 +109,7 @@
             this.eventLogButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.eventLogButton.Location = new System.Drawing.Point(219, 16);
             this.eventLogButton.Name = "eventLogButton";
-            this.eventLogButton.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.eventLogButton.Padding = new System.Windows.Forms.Padding(3);
             this.eventLogButton.Size = new System.Drawing.Size(140, 60);
             this.eventLogButton.TabIndex = 4;
             this.eventLogButton.Text = "EVENTLOG";
@@ -117,7 +119,7 @@
             // backButton
             // 
             this.backButton.Location = new System.Drawing.Point(30, 92);
-            this.backButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.backButton.Margin = new System.Windows.Forms.Padding(2);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(50, 23);
             this.backButton.TabIndex = 5;
@@ -129,7 +131,7 @@
             // 
             this.goButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.goButton.Location = new System.Drawing.Point(685, 92);
-            this.goButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.goButton.Margin = new System.Windows.Forms.Padding(2);
             this.goButton.Name = "goButton";
             this.goButton.Size = new System.Drawing.Size(50, 23);
             this.goButton.TabIndex = 6;
@@ -145,7 +147,7 @@
             this.listView1.HideSelection = false;
             this.listView1.LargeImageList = this.iconList;
             this.listView1.Location = new System.Drawing.Point(30, 119);
-            this.listView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listView1.Margin = new System.Windows.Forms.Padding(2);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(707, 312);
             this.listView1.SmallImageList = this.iconList;
@@ -177,28 +179,42 @@
             this.encryptFileToolStripMenuItem,
             this.decryptFileToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 114);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(137, 92);
             // 
             // lockFileToolStripMenuItem
             // 
             this.lockFileToolStripMenuItem.Name = "lockFileToolStripMenuItem";
-            this.lockFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.lockFileToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.lockFileToolStripMenuItem.Text = "Lock File";
             this.lockFileToolStripMenuItem.Click += new System.EventHandler(this.lockFileToolStripMenuItem_Click);
             // 
             // makeReadOnlyToolStripMenuItem
             // 
             this.makeReadOnlyToolStripMenuItem.Name = "makeReadOnlyToolStripMenuItem";
-            this.makeReadOnlyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.makeReadOnlyToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.makeReadOnlyToolStripMenuItem.Text = "Unlock File";
             this.makeReadOnlyToolStripMenuItem.Click += new System.EventHandler(this.makeReadOnlyToolStripMenuItem_Click);
+            // 
+            // encryptFileToolStripMenuItem
+            // 
+            this.encryptFileToolStripMenuItem.Name = "encryptFileToolStripMenuItem";
+            this.encryptFileToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.encryptFileToolStripMenuItem.Text = "Encrypt File";
+            this.encryptFileToolStripMenuItem.Click += new System.EventHandler(this.encryptFileToolStripMenuItem_Click);
+            // 
+            // decryptFileToolStripMenuItem
+            // 
+            this.decryptFileToolStripMenuItem.Name = "decryptFileToolStripMenuItem";
+            this.decryptFileToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.decryptFileToolStripMenuItem.Text = "Decrypt File";
+            this.decryptFileToolStripMenuItem.Click += new System.EventHandler(this.decryptFileToolStripMenuItem_Click);
             // 
             // filePathTextBox
             // 
             this.filePathTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.filePathTextBox.Location = new System.Drawing.Point(84, 92);
-            this.filePathTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.filePathTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.filePathTextBox.Name = "filePathTextBox";
             this.filePathTextBox.Size = new System.Drawing.Size(599, 20);
             this.filePathTextBox.TabIndex = 8;
@@ -256,20 +272,6 @@
             this.makeExecuteOnlyToolStripMenuItem.Name = "makeExecuteOnlyToolStripMenuItem";
             this.makeExecuteOnlyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.makeExecuteOnlyToolStripMenuItem.Text = "Make Execute Only";
-            // 
-            // encryptFileToolStripMenuItem
-            // 
-            this.encryptFileToolStripMenuItem.Name = "encryptFileToolStripMenuItem";
-            this.encryptFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.encryptFileToolStripMenuItem.Text = "Encrypt File";
-            this.encryptFileToolStripMenuItem.Click += new System.EventHandler(this.encryptFileToolStripMenuItem_Click);
-            // 
-            // decryptFileToolStripMenuItem
-            // 
-            this.decryptFileToolStripMenuItem.Name = "decryptFileToolStripMenuItem";
-            this.decryptFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.decryptFileToolStripMenuItem.Text = "Decrypt File";
-            this.decryptFileToolStripMenuItem.Click += new System.EventHandler(this.decryptFileToolStripMenuItem_Click);
             // 
             // Form2
             // 
