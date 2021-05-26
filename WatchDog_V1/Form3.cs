@@ -40,16 +40,22 @@ namespace WatchDog_V1
             linkLabel1.LinkVisited = true;
             System.Diagnostics.Process.Start("https://github.com/Alfredo-Vargas/watchdog");
 
+            string Pathsec = "Log\\" + Form1.A_Login + "\\Securtylog.txt";
             string Pathlog = "Log\\" +  Form1.A_Login + "\\Log.txt";
             string time = DateTime.Now.ToString("dd/M/yyyy-HH:mm:ss");
 
             using (StreamWriter sw = File.AppendText(Pathlog))
             {
-                sw.WriteLine(time + "\t Visited link : https://github.com/Alfredo-Vargas/watchdog " + Form1.A_Login + "\n");
+                sw.WriteLine(time + "\t Visited link :\t https://github.com/Alfredo-Vargas/watchdog " + "\n");
+                sw.Close();
+            }
+
+            using (StreamWriter sw = File.AppendText(Pathsec))
+            {
+                sw.WriteLine(time + "\t Visited link :\t https://github.com/Alfredo-Vargas/watchdog " + "\n");
                 sw.Close();
             }
         }
 
- 
     }
 }

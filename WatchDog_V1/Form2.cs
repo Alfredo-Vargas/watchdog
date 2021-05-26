@@ -485,6 +485,8 @@ namespace WatchDog_V1
                 sw.Close();
             }
 
+            Form7 Secr = new Form7();
+            Secr.Show();
 
         }
 

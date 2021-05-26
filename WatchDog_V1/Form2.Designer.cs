@@ -49,17 +49,20 @@
             this.fileTypeLabel = new System.Windows.Forms.Label();
             this.fileNameLabel = new System.Windows.Forms.Label();
             this.makeExecuteOnlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.contextMenuStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // addButton
             // 
+            this.addButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.addButton.AutoSize = true;
             this.addButton.BackColor = System.Drawing.Color.Black;
             this.addButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.addButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.addButton.Location = new System.Drawing.Point(30, 16);
+            this.addButton.Location = new System.Drawing.Point(28, 15);
             this.addButton.Name = "addButton";
             this.addButton.Padding = new System.Windows.Forms.Padding(3);
             this.addButton.Size = new System.Drawing.Size(140, 60);
@@ -70,12 +73,13 @@
             // 
             // watchDogButton
             // 
+            this.watchDogButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.watchDogButton.AutoSize = true;
             this.watchDogButton.BackColor = System.Drawing.Color.Black;
             this.watchDogButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.watchDogButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.watchDogButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.watchDogButton.Location = new System.Drawing.Point(593, 16);
+            this.watchDogButton.Location = new System.Drawing.Point(591, 15);
             this.watchDogButton.Name = "watchDogButton";
             this.watchDogButton.Padding = new System.Windows.Forms.Padding(3);
             this.watchDogButton.Size = new System.Drawing.Size(140, 60);
@@ -86,12 +90,13 @@
             // 
             // securityButton
             // 
+            this.securityButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.securityButton.AutoSize = true;
             this.securityButton.BackColor = System.Drawing.Color.Black;
             this.securityButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.securityButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.securityButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.securityButton.Location = new System.Drawing.Point(406, 16);
+            this.securityButton.Location = new System.Drawing.Point(404, 15);
             this.securityButton.Name = "securityButton";
             this.securityButton.Padding = new System.Windows.Forms.Padding(3);
             this.securityButton.Size = new System.Drawing.Size(140, 60);
@@ -102,12 +107,13 @@
             // 
             // eventLogButton
             // 
+            this.eventLogButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.eventLogButton.AutoSize = true;
             this.eventLogButton.BackColor = System.Drawing.Color.Black;
             this.eventLogButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.eventLogButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eventLogButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.eventLogButton.Location = new System.Drawing.Point(219, 16);
+            this.eventLogButton.Location = new System.Drawing.Point(217, 15);
             this.eventLogButton.Name = "eventLogButton";
             this.eventLogButton.Padding = new System.Windows.Forms.Padding(3);
             this.eventLogButton.Size = new System.Drawing.Size(140, 60);
@@ -273,6 +279,18 @@
             this.makeExecuteOnlyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.makeExecuteOnlyToolStripMenuItem.Text = "Make Execute Only";
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.addButton);
+            this.panel1.Controls.Add(this.eventLogButton);
+            this.panel1.Controls.Add(this.securityButton);
+            this.panel1.Controls.Add(this.watchDogButton);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(784, 91);
+            this.panel1.TabIndex = 13;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -280,6 +298,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlText;
             this.ClientSize = new System.Drawing.Size(784, 487);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.fileTypeLabel);
             this.Controls.Add(this.fileType);
             this.Controls.Add(this.fileNameLabel);
@@ -288,10 +307,6 @@
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.goButton);
             this.Controls.Add(this.backButton);
-            this.Controls.Add(this.watchDogButton);
-            this.Controls.Add(this.securityButton);
-            this.Controls.Add(this.eventLogButton);
-            this.Controls.Add(this.addButton);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form2";
@@ -300,6 +315,8 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
             this.Load += new System.EventHandler(this.Form2_Load);
             this.contextMenuStrip1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -325,5 +342,6 @@
         private System.Windows.Forms.ToolStripMenuItem makeExecuteOnlyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem encryptFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem decryptFileToolStripMenuItem;
+        private System.Windows.Forms.Panel panel1;
     }
 }

@@ -275,8 +275,7 @@ namespace WatchDog_V1
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form4";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "WatchDog";
-
+            this.Text = "WatchDog -Registration";
             this.ResumeLayout(false);
             this.PerformLayout();
 
