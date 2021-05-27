@@ -80,7 +80,7 @@ namespace WatchDog_V1
 
                 if (loginMatch == false)
                 {
-                    MessageBox.Show("Password or login incorrect try again\n" + attempts + "out of 3");
+                    MessageBox.Show("Password or login incorrect try again\n" + attempts + " out of 3");
                     attempts = attempts + 1;
                 }
             }
@@ -119,9 +119,9 @@ namespace WatchDog_V1
 
 
 
-        private async void timer1_Tick(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
-            await Task.Delay(750);
+            
             panel1.Width -= 40;
             panel2.Width -= 40;
 
@@ -131,7 +131,28 @@ namespace WatchDog_V1
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private async void Form1_Load(object sender, EventArgs e)
+        {
+            await Task.Delay(1500);
+            timer1.Start();
+        }
+
+        private void panel1_MouseClick(object sender, MouseEventArgs e)
+        {
+            timer1.Start();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            timer1.Start();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            timer1.Start();
+        }
+
+        private void panel2_MouseClick(object sender, MouseEventArgs e)
         {
             timer1.Start();
         }

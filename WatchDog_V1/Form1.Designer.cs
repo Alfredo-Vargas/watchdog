@@ -98,7 +98,7 @@ namespace WatchDog_V1
             this.LoginTxt.BackColor = System.Drawing.Color.Black;
             this.LoginTxt.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LoginTxt.ForeColor = System.Drawing.Color.Lime;
-            this.LoginTxt.Location = new System.Drawing.Point(304, 222);
+            this.LoginTxt.Location = new System.Drawing.Point(284, 223);
             this.LoginTxt.Name = "LoginTxt";
             this.LoginTxt.Size = new System.Drawing.Size(200, 23);
             this.LoginTxt.TabIndex = 5;
@@ -109,7 +109,7 @@ namespace WatchDog_V1
             this.PassTxt.BackColor = System.Drawing.Color.Black;
             this.PassTxt.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PassTxt.ForeColor = System.Drawing.Color.Lime;
-            this.PassTxt.Location = new System.Drawing.Point(304, 263);
+            this.PassTxt.Location = new System.Drawing.Point(284, 264);
             this.PassTxt.Name = "PassTxt";
             this.PassTxt.Size = new System.Drawing.Size(200, 23);
             this.PassTxt.TabIndex = 10;
@@ -138,7 +138,7 @@ namespace WatchDog_V1
             this.label2.BackColor = System.Drawing.Color.Black;
             this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Lime;
-            this.label2.Location = new System.Drawing.Point(193, 261);
+            this.label2.Location = new System.Drawing.Point(173, 262);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(107, 23);
             this.label2.TabIndex = 4;
@@ -168,7 +168,7 @@ namespace WatchDog_V1
             this.Login.BackColor = System.Drawing.Color.Black;
             this.Login.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Login.ForeColor = System.Drawing.Color.Lime;
-            this.Login.Location = new System.Drawing.Point(235, 222);
+            this.Login.Location = new System.Drawing.Point(215, 223);
             this.Login.Name = "Login";
             this.Login.Size = new System.Drawing.Size(64, 23);
             this.Login.TabIndex = 1;
@@ -183,6 +183,7 @@ namespace WatchDog_V1
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(380, 520);
             this.panel2.TabIndex = 24;
+            this.panel2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseClick);
             // 
             // pictureBox2
             // 
@@ -194,6 +195,7 @@ namespace WatchDog_V1
             this.pictureBox2.Size = new System.Drawing.Size(199, 299);
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // panel1
             // 
@@ -203,6 +205,7 @@ namespace WatchDog_V1
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(380, 520);
             this.panel1.TabIndex = 23;
+            this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseClick);
             // 
             // pictureBox1
             // 
@@ -214,6 +217,7 @@ namespace WatchDog_V1
             this.pictureBox1.Size = new System.Drawing.Size(199, 299);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label3
             // 

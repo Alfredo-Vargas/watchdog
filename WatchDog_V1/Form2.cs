@@ -466,7 +466,7 @@ namespace WatchDog_V1
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            var fileContent = string.Empty;
+            
             var filePath = string.Empty;
 
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
@@ -475,6 +475,7 @@ namespace WatchDog_V1
                 openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
                 openFileDialog.FilterIndex = 2;
                 openFileDialog.RestoreDirectory = true;
+                
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -489,6 +490,23 @@ namespace WatchDog_V1
                 this.isFile = false; // to avoid opening the selected file (we want only to refresh)
             }
             loadFilesAndDirectories();  // call to refresh the items in the File Explorer after new encrypted file was created
+
+
+           /* string Pathsec = "Log\\" + Form1.A_Login + "\\Securtylog.txt";
+            string time = DateTime.Now.ToString("dd/M/yyyy-HH:mm:ss");
+
+            using (StreamWriter sw = File.AppendText(Pathsec))
+            {
+                sw.WriteLine(time + "\tAdded File : \t" + Form1.A_Login + "\n");
+                sw.Close();
+            }
+
+            string Pathlog = "Log\\" + Form1.A_Login + "\\Log.txt";
+            using (StreamWriter sw = File.AppendText(Pathlog))
+            {
+                sw.WriteLine(time + "\tOpen SecurityLog : \t" + Form1.A_Login + "\n");
+                sw.Close();
+            }*/
         }
     }
 }
