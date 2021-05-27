@@ -21,7 +21,7 @@ namespace WatchDog_V1
         public string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
         public string userSID = System.Security.Principal.WindowsIdentity.GetCurrent().User.ToString();
         public string UserDomainName = Environment.UserDomainName;
-        private string filePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments); // C:\\Users/alfre/Documents/MEGA";
+        private string filePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         private bool isFile = false;
         private string currentlySelectedItemName = "";
         public Form2()
@@ -411,7 +411,12 @@ namespace WatchDog_V1
             string selectedFilePath = filePath + "/" + currentlySelectedItemName;
             string destinationFilePath = filePath + "/" + "encrypted_" + currentlySelectedItemName;
             EncryptFile(selectedFilePath, destinationFilePath);
-
+            
+            if (isFile)
+            {
+                this.isFile = false; // to avoid opening the selected file (we want only to refresh)
+            }
+            loadFilesAndDirectories();  // call to refresh the items in the File Explorer after new encrypted file was created
 
             string Pathsec = "Log\\" + Form1.A_Login + "\\Securtylog.txt";
             string time = DateTime.Now.ToString("dd/M/yyyy-HH:mm:ss");
@@ -429,6 +434,12 @@ namespace WatchDog_V1
             string destinationFilePath = filePath + "/" + "decrypted_" + currentlySelectedItemName;
             DecryptFile(selectedFilePath, destinationFilePath);
 
+            if (isFile)
+            {
+                this.isFile = false; // to avoid opening the selected file (we want only to refresh)
+            }
+            loadFilesAndDirectories();  // call to refresh the items in the File Explorer after new encrypted file was created
+
             string Pathsec = "Log\\" + Form1.A_Login + "\\Securtylog.txt";
             string time = DateTime.Now.ToString("dd/M/yyyy-HH:mm:ss");
 
@@ -441,7 +452,6 @@ namespace WatchDog_V1
 
         private void securityButton_Click(object sender, EventArgs e)
         {
-
             string Pathlog = "Log\\" + Form1.A_Login + "\\Log.txt";
             string time = DateTime.Now.ToString("dd/M/yyyy-HH:mm:ss");
 
@@ -450,10 +460,8 @@ namespace WatchDog_V1
                 sw.WriteLine(time + "\tOpen SecurityLog : \t" + Form1.A_Login + "\n");
                 sw.Close();
             }
-
             Form7 Secr = new Form7();
             Secr.Show();
-
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -470,20 +478,17 @@ namespace WatchDog_V1
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    //Get the path of specified file
-                    filePath = openFileDialog.FileName;
-
-                    //Read the contents of the file into a stream
-                    //var fileStream = openFileDialog.OpenFile();
-
-                    //using (StreamReader reader = new StreamReader(fileStream))
-                    //{
-                      //  fileContent = reader.ReadToEnd();
-                    //}
+                    filePath = openFileDialog.FileName;     //Get the path of specified file
                 }
             }
+
+            File.Copy(filePath, filePathTextBox.Text + "\\" + Path.GetFileName(filePath));
+
+            if (isFile)
+            {
+                this.isFile = false; // to avoid opening the selected file (we want only to refresh)
+            }
+            loadFilesAndDirectories();  // call to refresh the items in the File Explorer after new encrypted file was created
         }
-
-
     }
 }
