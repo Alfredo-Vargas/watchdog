@@ -48,7 +48,7 @@ namespace WatchDog_V1
                 Console.WriteLine(iox.Message);
             }
 
-            MessageBox.Show("The file " + Form1.A_Login + "_WatchDog_Security.txt has been placed on your desktop");
+            MessageBox.Show("The file " + Form1.A_Login + "_WatchDog_Security.txt has been placed in " + PathDesk);
         }
     }
 }
