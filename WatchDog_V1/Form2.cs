@@ -48,8 +48,8 @@ namespace WatchDog_V1
                 {
                     tempFilePath = filePath + "/" + currentlySelectedItemName;
                     FileInfo fileDetails = new FileInfo(tempFilePath);
-                    fileName.Text = fileDetails.Name;
-                    fileType.Text = fileDetails.Extension;
+                    fileNameLabel.Text = fileDetails.Name;
+                    fileTypeLabel.Text = fileDetails.Extension;
                     fileAttr = File.GetAttributes(tempFilePath);
                     Process.Start(tempFilePath);
                 }
@@ -117,7 +117,7 @@ namespace WatchDog_V1
                 }
                 else
                 {
-                    fileName.Text = this.currentlySelectedItemName;
+                    fileNameLabel.Text = this.currentlySelectedItemName;
                 }
             }
             catch(Exception e)
