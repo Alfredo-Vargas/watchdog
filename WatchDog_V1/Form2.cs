@@ -33,6 +33,8 @@ namespace WatchDog_V1
         {
             filePathTextBox.Text = filePath;
             loadFilesAndDirectories();
+            label2.Text = Form1.A_Login;
+
         }
 
         public void loadFilesAndDirectories()
@@ -494,5 +496,7 @@ namespace WatchDog_V1
         {
             loadFilesAndDirectories();
         }
+
+
     }
 }
