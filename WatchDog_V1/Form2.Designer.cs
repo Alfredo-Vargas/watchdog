@@ -56,7 +56,7 @@
             // 
             // addButton
             // 
-            this.addButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.addButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.addButton.AutoSize = true;
             this.addButton.BackColor = System.Drawing.Color.Black;
             this.addButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
@@ -73,7 +73,7 @@
             // 
             // watchDogButton
             // 
-            this.watchDogButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.watchDogButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.watchDogButton.AutoSize = true;
             this.watchDogButton.BackColor = System.Drawing.Color.Black;
             this.watchDogButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
@@ -90,7 +90,7 @@
             // 
             // securityButton
             // 
-            this.securityButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.securityButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.securityButton.AutoSize = true;
             this.securityButton.BackColor = System.Drawing.Color.Black;
             this.securityButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
@@ -107,7 +107,7 @@
             // 
             // eventLogButton
             // 
-            this.eventLogButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.eventLogButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.eventLogButton.AutoSize = true;
             this.eventLogButton.BackColor = System.Drawing.Color.Black;
             this.eventLogButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
