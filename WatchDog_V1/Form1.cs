@@ -21,7 +21,6 @@ namespace WatchDog_V1
         {
             InitializeComponent();
             PassTxt.PasswordChar = '*';
-           
         }
 
         int attempts = 1;
@@ -55,7 +54,6 @@ namespace WatchDog_V1
                     string encryUsr = Encryption.Encrypt(Login);
                     string enctyPass = Encryption.Encrypt(pass);
 
-
                     if (encryUsr == lines[i] && enctyPass == lines[i + 1])
                     {
                         loginMatch = true;
@@ -75,7 +73,6 @@ namespace WatchDog_V1
                         Form2 main = new Form2();
                         main.Show();
                         this.Hide();
-
                     }
 
                 }
@@ -93,10 +90,6 @@ namespace WatchDog_V1
                 System.Windows.Forms.Application.Exit();
             }
         }
-             
-
-
-        
 
         private void PassTxt_KeyPress(object sender, KeyPressEventArgs e)
         {

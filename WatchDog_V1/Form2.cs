@@ -34,7 +34,6 @@ namespace WatchDog_V1
             filePathTextBox.Text = filePath;
             loadFilesAndDirectories();
             label2.Text = Form1.A_Login;
-
         }
 
         public void loadFilesAndDirectories()
@@ -77,37 +76,6 @@ namespace WatchDog_V1
                         {
                             listView1.Items.Add(files[i].Name, "blank.ico");
                         }
-                        /*
-                        switch(fileExtension)  // index of the file icon 
-                        {
-                            case ".mp3":
-                            case ".mp2":
-                                listView1.Items.Add(files[i].Name, 2);   
-                                break;
-                            case ".exe":
-                            case ".com":
-                                listView1.Items.Add(files[i].Name, 3);   
-                                break;
-                            case ".mp4":
-                            case ".avi":
-                            case ".mkv":
-                                listView1.Items.Add(files[i].Name, 4);   
-                                break;
-                            case ".pdf":
-                                listView1.Items.Add(files[i].Name, 5);   
-                                break;
-                            case ".doc":
-                            case ".docx":
-                                listView1.Items.Add(files[i].Name, 6);   
-                                break;
-                            case ".png":
-                            case ".jpg":
-                            case ".jpeg":
-                                break;
-                            default:
-                                listView1.Items.Add(files[i].Name, 0);   
-                                break;
-                        }*/
                     }
                     for (int i = 0; i < dirs.Length; i++)
                     {
@@ -267,7 +235,6 @@ namespace WatchDog_V1
                 string Pathsec = "Log\\" + Form1.A_Login + "\\Securtylog.txt";
                 string time = DateTime.Now.ToString("dd/M/yyyy-HH:mm:ss");
 
-
                 using (StreamWriter sw = File.AppendText(Pathsec))
                 {
                     sw.WriteLine(time + "\tLocked File: \t"+ currentlySelectedItemName + "\n");
@@ -348,7 +315,6 @@ namespace WatchDog_V1
             {
                 MessageBox.Show(ex.ToString());
             }
-            //Console.ReadKey();
         }
         private void UnblockAllUsers()
         {
@@ -373,7 +339,6 @@ namespace WatchDog_V1
             {
                 MessageBox.Show(ex.ToString());
             }
-            //Console.ReadKey();
         }
 
         /* ENCRYPTION CODE HERE */
@@ -439,7 +404,6 @@ namespace WatchDog_V1
             {
                 MessageBox.Show("Decryption failed!");
             }
-
         }
 
         private void encryptFileToolStripMenuItem_Click(object sender, EventArgs e)
