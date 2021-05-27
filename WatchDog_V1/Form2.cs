@@ -230,7 +230,6 @@ namespace WatchDog_V1
             try
             {
                 BlockAllUsers();
-                //AddFileSecurity(selectedFilePath, userName, FileSystemRights.ReadData, AccessControlType.Deny);
 
                 string Pathsec = "Log\\" + Form1.A_Login + "\\Securtylog.txt";
                 string time = DateTime.Now.ToString("dd/M/yyyy-HH:mm:ss");
@@ -252,7 +251,6 @@ namespace WatchDog_V1
             try
             {
                 UnblockAllUsers();
-                //RemoveFileSecurity(selectedFilePath, userName, FileSystemRights.ReadData, AccessControlType.Deny);
 
                 string Pathsec = "Log\\" + Form1.A_Login + "\\Securtylog.txt";
                 string time = DateTime.Now.ToString("dd/M/yyyy-HH:mm:ss");
@@ -346,18 +344,20 @@ namespace WatchDog_V1
         /* https://www.codeproject.com/Articles/26085/File-Encryption-and-Decryption-in-C */
         private void EncryptFile(string inputFile, string outputFile)
         {
-            string uName = userSID.Substring(userSID.Length - 8);
+            string uName = userSID.Substring(userSID.Length - 16);
             try
             {
+                RijndaelManaged RMCrypto = new RijndaelManaged();
+                RMCrypto.BlockSize = 256;     // allows to user a bigger key (size of IV)
+
                 string password = uName;  // key used to encrypt
                 UnicodeEncoding UE = new UnicodeEncoding();
                 byte[] key = UE.GetBytes(password);
                 string cryptFile = outputFile;
                 FileStream fsCrypt = new FileStream(cryptFile, FileMode.Create);  // open pointer to destination file
 
-                RijndaelManaged RMCrypto = new RijndaelManaged();
-
-                CryptoStream cs = new CryptoStream(fsCrypt, RMCrypto.CreateEncryptor(key, key), CryptoStreamMode.Write); // pointer to crypto stream MEMORY ALLOCATION
+                // pointer to crypto stream MEMORY ALLOCATION
+                CryptoStream cs = new CryptoStream(fsCrypt, RMCrypto.CreateEncryptor(key, key), CryptoStreamMode.Write); 
 
                 FileStream fsIn = new FileStream(inputFile, FileMode.Open);     // open pointer to source file
 
@@ -376,17 +376,18 @@ namespace WatchDog_V1
         }
         private void DecryptFile(string inputFile, string outputFile)
         {
-            string uName = userSID.Substring(userSID.Length - 8);
+            string uName = userSID.Substring(userSID.Length - 16);
             try
             {
+                RijndaelManaged RMCrypto = new RijndaelManaged();
+                RMCrypto.BlockSize = 256;     // allows to user a bigger key (size of IV)
+
                 string password = uName;  // key used to decrypt 
 
                 UnicodeEncoding UE = new UnicodeEncoding();
                 byte[] key = UE.GetBytes(password);
 
                 FileStream fsCrypt = new FileStream(inputFile, FileMode.Open);
-
-                RijndaelManaged RMCrypto = new RijndaelManaged();
 
                 CryptoStream cs = new CryptoStream(fsCrypt, RMCrypto.CreateDecryptor(key, key), CryptoStreamMode.Read);
 
@@ -466,7 +467,6 @@ namespace WatchDog_V1
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            
             var filePath = string.Empty;
 
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
@@ -491,22 +491,28 @@ namespace WatchDog_V1
             }
             loadFilesAndDirectories();  // call to refresh the items in the File Explorer after new encrypted file was created
 
-
-           /* string Pathsec = "Log\\" + Form1.A_Login + "\\Securtylog.txt";
+            string Pathsec = "Log\\" + Form1.A_Login + "\\Securitylog.txt";
+            string Pathlog = "Log\\" + Form1.A_Login + "\\Log.txt";
             string time = DateTime.Now.ToString("dd/M/yyyy-HH:mm:ss");
 
-            using (StreamWriter sw = File.AppendText(Pathsec))
-            {
-                sw.WriteLine(time + "\tAdded File : \t" + Form1.A_Login + "\n");
-                sw.Close();
-            }
+             using (StreamWriter sw = File.AppendText(Pathsec))
+             {
+                 sw.WriteLine(time + "\tAdded File : \t" + Form1.A_Login + "\n");
+                 sw.Close();
+             }
 
-            string Pathlog = "Log\\" + Form1.A_Login + "\\Log.txt";
-            using (StreamWriter sw = File.AppendText(Pathlog))
-            {
-                sw.WriteLine(time + "\tOpen SecurityLog : \t" + Form1.A_Login + "\n");
-                sw.Close();
-            }*/
+             using (StreamWriter sw = File.AppendText(Pathlog))
+             {
+                 sw.WriteLine(time + "\tAdded File : \t" + Form1.A_Login + "\n");
+                 sw.Close();
+             }
+        }
+
+        private void deleteFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string fileToBeDeleted = filePath + "\\" + currentlySelectedItemName;
+            MessageBox.Show(fileToBeDeleted);
+            File.Delete(fileToBeDeleted);
         }
     }
 }

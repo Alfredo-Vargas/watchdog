@@ -52,6 +52,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.deleteFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -64,10 +65,11 @@
             this.addButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.addButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.addButton.Location = new System.Drawing.Point(28, 15);
+            this.addButton.Location = new System.Drawing.Point(42, 23);
+            this.addButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.addButton.Name = "addButton";
-            this.addButton.Padding = new System.Windows.Forms.Padding(3);
-            this.addButton.Size = new System.Drawing.Size(140, 60);
+            this.addButton.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.addButton.Size = new System.Drawing.Size(210, 92);
             this.addButton.TabIndex = 4;
             this.addButton.Text = "ADD";
             this.addButton.UseVisualStyleBackColor = false;
@@ -81,10 +83,11 @@
             this.watchDogButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.watchDogButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.watchDogButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.watchDogButton.Location = new System.Drawing.Point(591, 15);
+            this.watchDogButton.Location = new System.Drawing.Point(886, 23);
+            this.watchDogButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.watchDogButton.Name = "watchDogButton";
-            this.watchDogButton.Padding = new System.Windows.Forms.Padding(3);
-            this.watchDogButton.Size = new System.Drawing.Size(140, 60);
+            this.watchDogButton.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.watchDogButton.Size = new System.Drawing.Size(262, 92);
             this.watchDogButton.TabIndex = 4;
             this.watchDogButton.Text = "WATCHDOG";
             this.watchDogButton.UseVisualStyleBackColor = false;
@@ -98,10 +101,11 @@
             this.securityButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.securityButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.securityButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.securityButton.Location = new System.Drawing.Point(404, 15);
+            this.securityButton.Location = new System.Drawing.Point(606, 23);
+            this.securityButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.securityButton.Name = "securityButton";
-            this.securityButton.Padding = new System.Windows.Forms.Padding(3);
-            this.securityButton.Size = new System.Drawing.Size(140, 60);
+            this.securityButton.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.securityButton.Size = new System.Drawing.Size(226, 92);
             this.securityButton.TabIndex = 4;
             this.securityButton.Text = "SECURITY";
             this.securityButton.UseVisualStyleBackColor = false;
@@ -115,10 +119,11 @@
             this.eventLogButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.eventLogButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eventLogButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.eventLogButton.Location = new System.Drawing.Point(217, 15);
+            this.eventLogButton.Location = new System.Drawing.Point(326, 23);
+            this.eventLogButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.eventLogButton.Name = "eventLogButton";
-            this.eventLogButton.Padding = new System.Windows.Forms.Padding(3);
-            this.eventLogButton.Size = new System.Drawing.Size(140, 60);
+            this.eventLogButton.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.eventLogButton.Size = new System.Drawing.Size(243, 92);
             this.eventLogButton.TabIndex = 4;
             this.eventLogButton.Text = "EVENTLOG";
             this.eventLogButton.UseVisualStyleBackColor = false;
@@ -126,10 +131,9 @@
             // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(30, 92);
-            this.backButton.Margin = new System.Windows.Forms.Padding(2);
+            this.backButton.Location = new System.Drawing.Point(45, 142);
             this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(50, 23);
+            this.backButton.Size = new System.Drawing.Size(75, 35);
             this.backButton.TabIndex = 5;
             this.backButton.Text = "Back";
             this.backButton.UseVisualStyleBackColor = true;
@@ -138,10 +142,9 @@
             // goButton
             // 
             this.goButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.goButton.Location = new System.Drawing.Point(685, 92);
-            this.goButton.Margin = new System.Windows.Forms.Padding(2);
+            this.goButton.Location = new System.Drawing.Point(1028, 142);
             this.goButton.Name = "goButton";
-            this.goButton.Size = new System.Drawing.Size(50, 23);
+            this.goButton.Size = new System.Drawing.Size(75, 35);
             this.goButton.TabIndex = 6;
             this.goButton.Text = "Go";
             this.goButton.UseVisualStyleBackColor = true;
@@ -154,10 +157,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listView1.HideSelection = false;
             this.listView1.LargeImageList = this.iconList;
-            this.listView1.Location = new System.Drawing.Point(30, 119);
-            this.listView1.Margin = new System.Windows.Forms.Padding(2);
+            this.listView1.Location = new System.Drawing.Point(45, 183);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(707, 312);
+            this.listView1.Size = new System.Drawing.Size(1058, 478);
             this.listView1.SmallImageList = this.iconList;
             this.listView1.TabIndex = 7;
             this.listView1.UseCompatibleStateImageBehavior = false;
@@ -185,35 +187,36 @@
             this.lockFileToolStripMenuItem,
             this.makeReadOnlyToolStripMenuItem,
             this.encryptFileToolStripMenuItem,
-            this.decryptFileToolStripMenuItem});
+            this.decryptFileToolStripMenuItem,
+            this.deleteFileToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(137, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(241, 197);
             // 
             // lockFileToolStripMenuItem
             // 
             this.lockFileToolStripMenuItem.Name = "lockFileToolStripMenuItem";
-            this.lockFileToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.lockFileToolStripMenuItem.Size = new System.Drawing.Size(240, 32);
             this.lockFileToolStripMenuItem.Text = "Lock File";
             this.lockFileToolStripMenuItem.Click += new System.EventHandler(this.lockFileToolStripMenuItem_Click);
             // 
             // makeReadOnlyToolStripMenuItem
             // 
             this.makeReadOnlyToolStripMenuItem.Name = "makeReadOnlyToolStripMenuItem";
-            this.makeReadOnlyToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.makeReadOnlyToolStripMenuItem.Size = new System.Drawing.Size(240, 32);
             this.makeReadOnlyToolStripMenuItem.Text = "Unlock File";
             this.makeReadOnlyToolStripMenuItem.Click += new System.EventHandler(this.makeReadOnlyToolStripMenuItem_Click);
             // 
             // encryptFileToolStripMenuItem
             // 
             this.encryptFileToolStripMenuItem.Name = "encryptFileToolStripMenuItem";
-            this.encryptFileToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.encryptFileToolStripMenuItem.Size = new System.Drawing.Size(240, 32);
             this.encryptFileToolStripMenuItem.Text = "Encrypt File";
             this.encryptFileToolStripMenuItem.Click += new System.EventHandler(this.encryptFileToolStripMenuItem_Click);
             // 
             // decryptFileToolStripMenuItem
             // 
             this.decryptFileToolStripMenuItem.Name = "decryptFileToolStripMenuItem";
-            this.decryptFileToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.decryptFileToolStripMenuItem.Size = new System.Drawing.Size(240, 32);
             this.decryptFileToolStripMenuItem.Text = "Decrypt File";
             this.decryptFileToolStripMenuItem.Click += new System.EventHandler(this.decryptFileToolStripMenuItem_Click);
             // 
@@ -221,10 +224,9 @@
             // 
             this.filePathTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.filePathTextBox.Location = new System.Drawing.Point(84, 92);
-            this.filePathTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.filePathTextBox.Location = new System.Drawing.Point(126, 142);
             this.filePathTextBox.Name = "filePathTextBox";
-            this.filePathTextBox.Size = new System.Drawing.Size(599, 20);
+            this.filePathTextBox.Size = new System.Drawing.Size(896, 26);
             this.filePathTextBox.TabIndex = 8;
             // 
             // fileName
@@ -232,10 +234,9 @@
             this.fileName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.fileName.AutoSize = true;
             this.fileName.ForeColor = System.Drawing.SystemColors.Control;
-            this.fileName.Location = new System.Drawing.Point(41, 441);
-            this.fileName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.fileName.Location = new System.Drawing.Point(62, 678);
             this.fileName.Name = "fileName";
-            this.fileName.Size = new System.Drawing.Size(54, 13);
+            this.fileName.Size = new System.Drawing.Size(80, 20);
             this.fileName.TabIndex = 9;
             this.fileName.Text = "File Name";
             // 
@@ -244,10 +245,9 @@
             this.fileType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.fileType.AutoSize = true;
             this.fileType.ForeColor = System.Drawing.SystemColors.Control;
-            this.fileType.Location = new System.Drawing.Point(501, 441);
-            this.fileType.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.fileType.Location = new System.Drawing.Point(752, 678);
             this.fileType.Name = "fileType";
-            this.fileType.Size = new System.Drawing.Size(50, 13);
+            this.fileType.Size = new System.Drawing.Size(72, 20);
             this.fileType.TabIndex = 11;
             this.fileType.Text = "File Type";
             // 
@@ -256,10 +256,9 @@
             this.fileTypeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.fileTypeLabel.AutoSize = true;
             this.fileTypeLabel.ForeColor = System.Drawing.Color.White;
-            this.fileTypeLabel.Location = new System.Drawing.Point(590, 441);
-            this.fileTypeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.fileTypeLabel.Location = new System.Drawing.Point(885, 678);
             this.fileTypeLabel.Name = "fileTypeLabel";
-            this.fileTypeLabel.Size = new System.Drawing.Size(13, 13);
+            this.fileTypeLabel.Size = new System.Drawing.Size(19, 20);
             this.fileTypeLabel.TabIndex = 12;
             this.fileTypeLabel.Text = "--";
             // 
@@ -268,10 +267,9 @@
             this.fileNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.fileNameLabel.AutoSize = true;
             this.fileNameLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.fileNameLabel.Location = new System.Drawing.Point(141, 441);
-            this.fileNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.fileNameLabel.Location = new System.Drawing.Point(212, 678);
             this.fileNameLabel.Name = "fileNameLabel";
-            this.fileNameLabel.Size = new System.Drawing.Size(13, 13);
+            this.fileNameLabel.Size = new System.Drawing.Size(19, 20);
             this.fileNameLabel.TabIndex = 10;
             this.fileNameLabel.Text = "--";
             // 
@@ -289,17 +287,19 @@
             this.panel1.Controls.Add(this.watchDogButton);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(784, 91);
+            this.panel1.Size = new System.Drawing.Size(1176, 140);
             this.panel1.TabIndex = 13;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(42, 465);
+            this.label1.Location = new System.Drawing.Point(63, 715);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.Size = new System.Drawing.Size(55, 20);
             this.label1.TabIndex = 14;
             this.label1.Text = "User : ";
             // 
@@ -308,20 +308,26 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(141, 465);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(212, 715);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(13, 13);
+            this.label2.Size = new System.Drawing.Size(19, 20);
             this.label2.TabIndex = 15;
             this.label2.Text = "--";
             // 
+            // deleteFileToolStripMenuItem
+            // 
+            this.deleteFileToolStripMenuItem.Name = "deleteFileToolStripMenuItem";
+            this.deleteFileToolStripMenuItem.Size = new System.Drawing.Size(240, 32);
+            this.deleteFileToolStripMenuItem.Text = "Delete File";
+            this.deleteFileToolStripMenuItem.Click += new System.EventHandler(this.deleteFileToolStripMenuItem_Click);
+            // 
             // Form2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlText;
-            this.ClientSize = new System.Drawing.Size(784, 487);
+            this.ClientSize = new System.Drawing.Size(1176, 749);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
@@ -335,6 +341,7 @@
             this.Controls.Add(this.backButton);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "WatchDog";
@@ -371,5 +378,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ToolStripMenuItem deleteFileToolStripMenuItem;
     }
 }
