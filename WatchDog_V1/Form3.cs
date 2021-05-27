@@ -57,5 +57,20 @@ namespace WatchDog_V1
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string MailH = "Kahramanogluharun@gmail.com";
+            string MailA = "alfredo.vargas-paredes@outlook.com;";
+            System.Diagnostics.Process.Start("mailto:" + MailA  + MailH + "?Subject=WatchDog Contact Form");
+
+            string Pathsec = "Log\\" + Form1.A_Login + "\\Securtylog.txt";
+            string time = DateTime.Now.ToString("dd/M/yyyy-HH:mm:ss");
+
+            using (StreamWriter sw = File.AppendText(Pathsec))
+            {
+                sw.WriteLine(time + "\t Send Mail to : " +MailH + " " + MailA + "\n");
+                sw.Close();
+            }
+        }
     }
 }
