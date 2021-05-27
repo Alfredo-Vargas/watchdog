@@ -21,7 +21,7 @@ namespace WatchDog_V1
         public string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
         public string userSID = System.Security.Principal.WindowsIdentity.GetCurrent().User.ToString();
         public string UserDomainName = Environment.UserDomainName;
-        private string filePath = "C:/Users/"; // C:\\Users/alfre/Documents/MEGA";
+        private string filePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments); // C:\\Users/alfre/Documents/MEGA";
         private bool isFile = false;
         private string currentlySelectedItemName = "";
         public Form2()
