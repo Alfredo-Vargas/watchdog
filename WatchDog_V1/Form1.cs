@@ -11,6 +11,7 @@ using WatchDog_V1;
 using System.IO;
 using EncryptEncDec;
 
+
 namespace WatchDog_V1
 {
     public partial class Form1 : Form
@@ -117,6 +118,23 @@ namespace WatchDog_V1
         }
 
 
+
+        private async void timer1_Tick(object sender, EventArgs e)
+        {
+            await Task.Delay(750);
+            panel1.Width -= 40;
+            panel2.Width -= 40;
+
+            if(panel1.Width == 0)
+            {
+                timer1.Stop();
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            timer1.Start();
+        }
     }
 }
       

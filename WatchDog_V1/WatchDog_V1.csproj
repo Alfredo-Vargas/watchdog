@@ -143,5 +143,11 @@
   <ItemGroup>
     <None Include="eye-icon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="WatchDogLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="WatchDogRight.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
