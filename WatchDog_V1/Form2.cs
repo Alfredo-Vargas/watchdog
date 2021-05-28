@@ -511,8 +511,12 @@ namespace WatchDog_V1
         private void deleteFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string fileToBeDeleted = filePath + "\\" + currentlySelectedItemName;
-            MessageBox.Show(fileToBeDeleted);
             File.Delete(fileToBeDeleted);
+            if (isFile)
+            {
+                this.isFile = false; // to avoid opening the selected file (we want only to refresh)
+            }
+            loadFilesAndDirectories();  // call to refresh the items in the File Explorer after new encrypted file was created           
         }
     }
 }
